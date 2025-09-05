@@ -132,9 +132,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Instructors Section */}
+      {/* Team Section */}
       <section className="mb-16">
-        <h2 className="text-3xl font-bold mb-12 text-center text-dark-slate dark:text-off-white">Our Instructors</h2>
+        <h2 className="text-3xl font-bold mb-12 text-center text-dark-slate dark:text-off-white">Our Team</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -151,23 +151,23 @@ export default function AboutPage() {
             </div>
             <div className="p-6">
               <h3 className="text-xl font-bold mb-1 text-dark-slate dark:text-off-white">Eden Gilbert Kiseka</h3>
-              <p className="text-uganda-red font-semibold mb-3">Lead Instructor & Founder</p>
+              <p className="text-uganda-red font-semibold mb-3">Founder & CEO</p>
               <p className="text-gray-600 dark:text-gray-300 text-sm">
-                Electrical & Software Engineer specializing in semiconductors, embedded systems, Android development, and UI/UX design. Teaching advanced electronics and embedded systems.
+                Electrical & Software Engineer specializing in semiconductors, embedded systems, Android development, and UI/UX design. Implementing Material You 3 design language.
               </p>
             </div>
           </motion.div>
            {[
              {
                name: 'Okurut Joe',
-               role: 'Instructor - Telecommunications & UI/UX Design',
-               bio: 'Telecommunications engineer and UI/UX design instructor specializing in user-centered design, modern interfaces, and telecommunications systems.',
+               role: 'Telecommunications Engineer & UI/UX Designer',
+               bio: 'Telecommunications engineer and UI/UX designer specializing in user-centered design and modern interfaces',
                image: '/2025-09-05 17.04.54.jpg'
              },
              {
                name: 'Nakisanze Daisy',
-               role: 'Instructor - Full Stack Development',
-               bio: 'Full stack software engineer and lead development instructor proficient in backend development, modern web technologies, and software architecture.',
+               role: 'Full Stack Software Engineer & Lead Developer',
+               bio: 'Full stack software engineer and our lead developer proficient in backend development and modern web technologies',
                image: '/107997017.jpg'
              }
            ].map((member, index) => (
@@ -186,7 +186,7 @@ export default function AboutPage() {
                      className="w-full h-full object-cover"
                    />
                  ) : (
-                   <span className="text-gray-500 dark:text-gray-400">Instructor Photo</span>
+                   <span className="text-gray-500 dark:text-gray-400">Team Member Photo</span>
                  )}
                </div>
               <div className="p-6">

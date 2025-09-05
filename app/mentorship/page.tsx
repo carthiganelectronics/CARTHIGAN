@@ -26,31 +26,24 @@ export default function MentorshipPage() {
   const mentors: Mentor[] = [
     {
       id: 1,
-      name: 'Samuel Mubarak',
-      expertise: 'Embedded Systems',
-      description: '10+ years experience in IoT and microcontroller programming',
-      image: 'https://images.unsplash.com/photo-1505228395891-9a51e7814e02?auto=format&fit=crop&w=500'
+      name: 'Eden Gilbert Kiseka',
+      expertise: 'Embedded Systems & Electrical Engineering',
+      description: 'Lead instructor with expertise in semiconductors, embedded systems, Android development, and UI/UX design. Teaching advanced electronics and embedded systems.',
+      image: '/2025-09-05 16.40.35.jpg'
     },
     {
       id: 2,
-      name: 'Grace Nakato',
-      expertise: 'UI/UX Design',
-      description: 'Product designer with focus on mobile applications',
-      image: 'https://images.unsplash.com/photo-1505228395891-9a51e7814e02?auto=format&fit=crop&w=500'
+      name: 'Okurut Joe',
+      expertise: 'Telecommunications & UI/UX Design',
+      description: 'Telecommunications engineer and UI/UX design instructor specializing in user-centered design, modern interfaces, and telecommunications systems.',
+      image: '/2025-09-05 17.04.54.jpg'
     },
     {
       id: 3,
-      name: 'David Omondi',
-      expertise: 'Music Production',
-      description: 'Professional sound engineer and producer',
-      image: 'https://images.unsplash.com/photo-1505228395891-9a51e7814e02?auto=format&fit=crop&w=500'
-    },
-    {
-      id: 4,
-      name: 'Sarah Namubiru',
-      expertise: 'Novel Writing',
-      description: 'Published author with experience in creative writing',
-      image: 'https://images.unsplash.com/photo-1505228395891-9a51e7814e02?auto=format&fit=crop&w=500'
+      name: 'Nakisanze Daisy',
+      expertise: 'Full Stack Development',
+      description: 'Full stack software engineer and lead development instructor proficient in backend development, modern web technologies, and software architecture.',
+      image: '/107997017.jpg'
     }
   ]
 
@@ -128,16 +121,14 @@ export default function MentorshipPage() {
       {/* Mentorship Programs */}
       <section className="mb-16">
         <h2 className="text-3xl font-bold mb-8 text-center text-dark-slate dark:text-off-white">Our Mentorship Areas</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {[
-            { title: 'Embedded Systems', description: 'Learn IoT, microcontrollers, and hardware programming' },
-            { title: 'UI/UX Design', description: 'Master user interface and experience design principles' },
-            { title: 'Music Production', description: 'Develop skills in audio engineering and production' },
-            { title: 'Novel Writing', description: 'Enhance your creative writing and storytelling abilities' },
-            { title: 'Videography', description: 'Learn professional video production and editing' },
-            { title: 'Software Development', description: 'Build applications and master programming languages' },
-            { title: 'Electrical Engineering', description: 'Understand circuits, systems, and electronics' },
-            { title: 'Semiconductor Design', description: 'Explore chip design and fabrication processes' }
+            { title: 'Embedded Systems', description: 'Learn IoT, microcontrollers, and hardware programming from industry experts' },
+            { title: 'UI/UX Design', description: 'Master user interface and experience design principles with hands-on projects' },
+            { title: 'Full Stack Development', description: 'Build applications and master programming languages with real-world projects' },
+            { title: 'Electrical Engineering', description: 'Understand circuits, systems, and electronics with practical applications' },
+            { title: 'Telecommunications', description: 'Explore modern communication systems and network protocols' },
+            { title: 'Semiconductor Design', description: 'Dive into chip design and fabrication processes with industry insights' }
           ].map((program, index) => (
             <motion.div
               key={index}
