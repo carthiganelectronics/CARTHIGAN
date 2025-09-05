@@ -9,6 +9,8 @@ import AnimatedShowcase from '@/components/AnimatedShowcase'
 import { AnimatedTestimonials } from '@/components/ui/animated-testimonials'
 import { AuroraBackground } from '@/components/ui/aurora-background'
 import { DraggableCardBody, DraggableCardContainer } from '@/components/ui/draggable-card'
+import { WobbleCard } from '@/components/ui/wobble-card'
+import { FocusCards } from '@/components/ui/focus-cards'
 
 export default function Home() {
   const [isMounted, setIsMounted] = useState(false)
@@ -49,6 +51,12 @@ export default function Home() {
       designation: "Digital Artist & Designer",
       src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=500",
     },
+    {
+      quote: "As the founder and CEO of Carthigan, I'm dedicated to building Uganda's premier tech hub for electronics, embedded systems, and software technology. Our mission is to empower local innovators with world-class resources and mentorship.",
+      name: "Eden Gilbert Kiseka",
+      designation: "CEO & Founder, Electrical & Software Engineer",
+      src: "/2025-09-05 16.40.35.jpg",
+    },
   ];
 
   // Science Week photos
@@ -87,6 +95,22 @@ export default function Home() {
       title: "Carthigan Team",
       image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       className: "absolute top-8 left-[30%] rotate-[4deg]",
+    },
+  ];
+
+  // Focus Cards data for Aceternity UI Pro showcase
+  const focusCardsData = [
+    {
+      title: "Components",
+      src: "https://images.unsplash.com/photo-1517479149777-5f3b1511d5ad?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      title: "Templates",
+      src: "https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
+    {
+      title: "Showcase",
+      src: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
   ];
 
@@ -157,6 +181,22 @@ export default function Home() {
               </DraggableCardBody>
             ))}
           </DraggableCardContainer>
+        </div>
+      </section>
+
+      {/* Introducing Aceternity UI Pro */}
+      <section className="py-16 md:py-24 bg-off-white dark:bg-dark-slate">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-dark-slate dark:text-off-white">
+              Introducing Aceternity UI Pro
+            </h2>
+            <p className="text-xl mt-4 text-dark-slate dark:text-off-white">
+              70+ premium component packs and templates to build amazing websites.
+            </p>
+          </div>
+
+          <FocusCards cards={focusCardsData} />
         </div>
       </section>
 
