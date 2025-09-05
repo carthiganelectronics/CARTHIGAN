@@ -46,7 +46,6 @@ export default function AdminDashboard() {
 
     setPendingApprovals([
       { id: 1, type: 'Blog Comment', content: 'New comment on "Future of Semiconductors"', date: '2025-08-20' },
-      { id: 2, type: 'Community Post', content: 'Discussion about Arduino projects', date: '2025-08-19' },
       { id: 3, type: 'Mentorship Inquiry', content: 'Request for embedded systems mentorship', date: '2025-08-18' }
     ])
   }, [])

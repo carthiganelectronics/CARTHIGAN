@@ -2,12 +2,11 @@
 
 ## Overview
 
-Carthigan is a full-stack e-commerce and community platform designed for Uganda's tech ecosystem. The platform serves multiple purposes:
+Carthigan is a full-stack e-commerce platform designed for Uganda's tech ecosystem. The platform serves multiple purposes:
 
 1. **E-commerce**: Selling electronics, embedded systems, software tools, and creative resources
 2. **Education**: Providing mentorship programs and educational content
-3. **Community**: Facilitating discussions and knowledge sharing
-4. **Innovation**: Supporting semiconductor research and development
+3. **Innovation**: Supporting semiconductor research and development
 
 ## Architecture
 
@@ -48,7 +47,6 @@ Carthigan is a full-stack e-commerce and community platform designed for Uganda'
 │   │   ├── about/
 │   │   ├── blog/
 │   │   ├── checkout/
-│   │   ├── community/
 │   │   ├── mentorship/
 │   │   ├── products/
 │   │   └── page.tsx       # Homepage
@@ -102,7 +100,7 @@ The mentorship system connects learners with industry professionals.
 - Community discussion forums
 
 **Data Model**:
-```sql
+``sql
 create table mentorship_inquiries (
   id uuid default uuid_generate_v4() primary key,
   name varchar(255) not null,
@@ -147,29 +145,7 @@ create table comments (
 );
 ```
 
-### 4. Community Forum
-
-The community forum allows anonymous discussions on various topics.
-
-**Key Components**:
-- Category-based discussion threads
-- Post creation form
-- Like and comment functionality
-
-**Data Model**:
-```sql
-create table community_posts (
-  id uuid default uuid_generate_v4() primary key,
-  title varchar(255) not null,
-  content text not null,
-  author_name varchar(255) not null,
-  category varchar(100) not null,
-  approved boolean default false,
-  created_at timestamp with time zone default timezone('utc'::text, now()) not null
-);
-```
-
-### 5. Admin Panel
+### 4. Admin Panel
 
 The admin panel provides tools for managing content and orders.
 
@@ -179,7 +155,6 @@ The admin panel provides tools for managing content and orders.
 - Order processing
 - Mentorship inquiry management
 - Blog post management
-- Community post moderation
 
 ## Security
 

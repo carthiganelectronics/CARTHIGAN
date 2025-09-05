@@ -43,7 +43,7 @@ export default function Home() {
       src: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=500",
     },
     {
-      quote: "The creative resources and community support have helped me launch my career as a digital artist. Carthigan truly invests in its members.",
+      quote: "The creative resources and support have helped me launch my career as a digital artist. Carthigan truly invests in its members.",
       name: "Lisa Thompson",
       designation: "Digital Artist & Designer",
       src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=500",
@@ -134,7 +134,7 @@ export default function Home() {
             Ready to Innovate?
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto text-dark-slate dark:text-off-white">
-            Join our community of tech enthusiasts, creators, and innovators in Uganda
+            Join our network of tech enthusiasts, creators, and innovators in Uganda
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link 

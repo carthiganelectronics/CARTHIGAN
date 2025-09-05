@@ -27,13 +27,6 @@ export default function RoadmapSection() {
       completed: true
     },
     {
-      id: 3,
-      title: "Community Forum",
-      description: "Public discussions and knowledge sharing platform",
-      date: "Q3 2025",
-      completed: false
-    },
-    {
       id: 4,
       title: "Semiconductor Education",
       description: "Courses and resources on chip design and fabrication",

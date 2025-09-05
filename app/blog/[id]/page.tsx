@@ -43,13 +43,12 @@ export default function BlogPostPage({ params }: any) {
       
       <h2 class="text-2xl font-bold my-6 text-dark-slate dark:text-off-white">How You Can Help</h2>
       
-      <p>We invite the community to join us in this journey. Whether you're a student, entrepreneur, or investor, there are opportunities to contribute:</p>
+      <p>We invite you to join us in this journey. Whether you're a student, entrepreneur, or investor, there are opportunities to contribute:</p>
       
       <ul class="list-disc pl-8 my-4 space-y-2">
         <li>Enroll in our semiconductor courses and workshops</li>
         <li>Participate in our mentorship programs</li>
         <li>Support our research initiatives through donations or partnerships</li>
-        <li>Join our community forum to share ideas and collaborate</li>
       </ul>
       
       <p>Together, we can build a future where Uganda is not just a consumer of technology, but a creator and innovator.</p>

@@ -45,9 +45,6 @@ export default function Header() {
           <Link href="/about" className="text-gray-700 dark:text-gray-300 hover:text-uganda-red transition">
             About
           </Link>
-          <Link href="/community" className="text-gray-700 dark:text-gray-300 hover:text-uganda-red transition">
-            Community
-          </Link>
           <Link href="/contact" className="bg-uganda-red hover:bg-uganda-red/90 text-white font-bold py-2 px-4 rounded-full transition">
             Contact
           </Link>
@@ -89,9 +86,6 @@ export default function Header() {
               </Link>
               <Link href="/about" className="block py-2 text-gray-700 dark:text-gray-300 hover:text-uganda-red transition">
                 About
-              </Link>
-              <Link href="/community" className="block py-2 text-gray-700 dark:text-gray-300 hover:text-uganda-red transition">
-                Community
               </Link>
               <Link href="/contact" className="block py-2 text-center bg-uganda-red hover:bg-uganda-red/90 text-white font-bold rounded-full transition">
                 Contact Us

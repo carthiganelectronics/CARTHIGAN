@@ -1,6 +1,6 @@
 # Carthigan - Uganda's Leading Tech Hub
 
-A full-stack e-commerce and community platform for electronics, embedded systems, software technology, and creative resources.
+A full-stack e-commerce platform for electronics, embedded systems, software technology, and creative resources.
 
 ## Tech Stack
 
@@ -29,7 +29,6 @@ A full-stack e-commerce and community platform for electronics, embedded systems
 │   ├── about/           # About page
 │   ├── blog/            # Blog section
 │   ├── checkout/        # Checkout flow
-│   ├── community/       # Community forum
 │   ├── mentorship/      # Mentorship programs
 │   ├── products/        # Product catalog
 │   ├── admin/           # Admin panel
@@ -78,7 +77,6 @@ A full-stack e-commerce and community platform for electronics, embedded systems
 - **Guest Checkout**: Secure payment processing with Paystack
 - **Mentorship Programs**: Connect with industry professionals
 - **Blog & Resources**: Technical articles and tutorials
-- **Community Forum**: Anonymous discussions and knowledge sharing
 - **Admin Panel**: Content and order management dashboard
 - **Responsive Design**: Mobile-first approach for Ugandan users
 - **Dark Mode**: Adaptive theme based on system preferences

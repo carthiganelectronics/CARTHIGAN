@@ -13,7 +13,6 @@ This document provides a comprehensive overview of all files created for the Car
 │   │   ├── page.tsx              # Blog listing page
 │   │   └── [id]/page.tsx         # Blog post detail page
 │   ├── checkout/page.tsx         # Checkout flow
-│   ├── community/page.tsx        # Community forum
 │   ├── mentorship/page.tsx       # Mentorship programs
 │   ├── products/page.tsx         # Product catalog
 │   ├── admin/
@@ -79,23 +78,18 @@ This document provides a comprehensive overview of all files created for the Car
 - Detailed article views
 - Comment system
 
-### 5. Community Forum
-- Discussion threads
-- Category organization
-- Anonymous posting
-
-### 6. Checkout System
+### 5. Checkout System
 - Guest checkout flow
 - Shipping information collection
 - Payment method selection
 - Paystack integration
 
-### 7. Admin Panel
+### 6. Admin Panel
 - Dashboard with analytics
 - Content management interface
 - Order processing tools
 
-### 8. Backend Integration
+### 7. Backend Integration
 - Supabase database schema
 - Row Level Security policies
 - Edge Functions for serverless logic

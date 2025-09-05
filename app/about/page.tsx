@@ -24,7 +24,7 @@ export default function AboutPage() {
               We bridge the gap between global technology trends and local needs, providing access to cutting-edge electronics, embedded systems, software tools, and creative resources.
             </p>
             <p className="text-gray-700 dark:text-gray-300 text-lg">
-              Our vision extends beyond just reselling components - we're building a community of innovators, creators, and learners who will drive Uganda's technological future.
+              Our vision extends beyond just reselling components - we're building a network of innovators, creators, and learners who will drive Uganda's technological future.
             </p>
           </div>
           <div className="bg-gray-300 dark:bg-gray-700 rounded-2xl h-96 flex items-center justify-center">
@@ -48,7 +48,7 @@ export default function AboutPage() {
               What started as a small initiative to import Arduino boards and electronic components has grown into a comprehensive platform serving diverse technological and creative needs.
             </p>
             <p className="text-gray-700 dark:text-gray-300 text-lg">
-              Today, we're not just a reseller but a hub for innovation, education, and community building in Uganda's tech ecosystem.
+              Today, we're not just a reseller but a hub for innovation, education, and collaboration in Uganda's tech ecosystem.
             </p>
           </div>
         </div>
@@ -78,15 +78,6 @@ export default function AboutPage() {
               )
             },
             {
-              title: 'Community',
-              description: 'We believe in the power of collaboration and building strong, supportive networks.',
-              icon: (
-                <svg className="w-8 h-8 text-uganda-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                </svg>
-              )
-            },
-            {
               title: 'Education',
               description: 'We prioritize learning and knowledge sharing to empower the next generation of Ugandan technologists.',
               icon: (
@@ -108,7 +99,7 @@ export default function AboutPage() {
             },
             {
               title: 'Excellence',
-              description: 'We strive for the highest quality in everything we do, from products to services to community engagement.',
+              description: 'We strive for the highest quality in everything we do, from products to services to engagement.',
               icon: (
                 <svg className="w-8 h-8 text-uganda-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
