@@ -149,33 +149,42 @@ export default function AboutPage() {
               </p>
             </div>
           </motion.div>
-          {[
-            {
-              name: 'Samuel Mubarak',
-              role: 'CTO',
-              bio: 'Electrical engineer with 10+ years in embedded systems and IoT development'
-            },
-            {
-              name: 'Grace Nakato',
-              role: 'Head of Design',
-              bio: 'UI/UX designer with expertise in creating intuitive user experiences'
-            },
-            {
-              name: 'David Omondi',
-              role: 'Creative Director',
-              bio: 'Music producer and videographer with a passion for digital arts'
-            }
-          ].map((member, index) => (
-            <motion.div
-              key={index+1}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: (index+1) * 0.1 }}
-              className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg text-center"
-            >
-              <div className="h-64 bg-gray-300 dark:bg-gray-700 flex items-center justify-center">
-                <span className="text-gray-500 dark:text-gray-400">Team Member Photo</span>
-              </div>
+           {[
+             {
+               name: 'Okurut Joe',
+               role: 'Telecommunications Engineer & UI/UX Designer',
+               bio: 'Telecommunications engineer and UI/UX designer specializing in user-centered design and modern interfaces',
+               image: '/2025-09-05 17.04.54.jpg'
+             },
+             {
+               name: 'Grace Nakato',
+               role: 'Head of Design',
+               bio: 'UI/UX designer with expertise in creating intuitive user experiences'
+             },
+             {
+               name: 'David Omondi',
+               role: 'Creative Director',
+               bio: 'Music producer and videographer with a passion for digital arts'
+             }
+           ].map((member, index) => (
+             <motion.div
+               key={index+1}
+               initial={{ opacity: 0, y: 20 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               transition={{ duration: 0.5, delay: (index+1) * 0.1 }}
+               className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg text-center"
+             >
+               <div className="h-64 bg-gray-300 dark:bg-gray-700 flex items-center justify-center">
+                 {member.image ? (
+                   <img
+                     src={member.image}
+                     alt={member.name}
+                     className="w-full h-full object-cover"
+                   />
+                 ) : (
+                   <span className="text-gray-500 dark:text-gray-400">Team Member Photo</span>
+                 )}
+               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-1 text-dark-slate dark:text-off-white">{member.name}</h3>
                 <p className="text-uganda-red font-semibold mb-3">{member.role}</p>
