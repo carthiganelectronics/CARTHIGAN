@@ -28,7 +28,11 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="bg-gray-300 dark:bg-gray-700 rounded-2xl h-96 flex items-center justify-center">
-            <span className="text-gray-500 dark:text-gray-400">Mission Image</span>
+            <img 
+              src="/IMAGE 2025-09-05 17:49:00.jpg" 
+              alt="Our Mission" 
+              className="w-full h-full object-cover rounded-2xl"
+            />
           </div>
         </div>
       </section>
