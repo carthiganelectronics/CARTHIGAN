@@ -29,7 +29,7 @@ export default function AboutPage() {
           </div>
           <div className="bg-gray-300 dark:bg-gray-700 rounded-2xl h-96 flex items-center justify-center">
             <img 
-              src="/IMAGE 2025-09-05 17:49:00.jpg" 
+              src="/IMAGE%202025-09-05%2017%3A49%3A00.jpg" 
               alt="Our Mission" 
               className="w-full h-full object-cover rounded-2xl"
             />
