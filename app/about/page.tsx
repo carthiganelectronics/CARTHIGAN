@@ -127,72 +127,66 @@ export default function AboutPage() {
       {/* Team Section */}
       <section className="mb-16">
         <h2 className="text-3xl font-bold mb-12 text-center text-dark-slate dark:text-off-white">Our Team</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg text-center"
-          >
-            <div className="h-64 flex items-center justify-center">
-              <img 
-                src="/2025-09-05 16.40.35.jpg" 
-                alt="Eden Gilbert Kiseka" 
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="p-6">
-              <h3 className="text-xl font-bold mb-1 text-dark-slate dark:text-off-white">Eden Gilbert Kiseka</h3>
-              <p className="text-uganda-red font-semibold mb-3">Founder & CEO</p>
-              <p className="text-gray-600 dark:text-gray-300 text-sm">
-                Electrical & Software Engineer specializing in semiconductors, embedded systems, Android development, and UI/UX design. Implementing Material You 3 design language.
-              </p>
-            </div>
-          </motion.div>
-           {[
-             {
-               name: 'Okurut Joe',
-               role: 'Telecommunications Engineer & UI/UX Designer',
-               bio: 'Telecommunications engineer and UI/UX designer specializing in user-centered design and modern interfaces',
-               image: '/2025-09-05 17.04.54.jpg'
-             },
-             {
-               name: 'Nakisanze Daisy',
-               role: 'Full Stack Software Engineer & Lead Developer',
-               bio: 'Full stack software engineer and our lead developer proficient in the backend, specializing in scalable architectures and robust backend systems',
-               image: '/107997017.jpg'
-             },
-             {
-               name: 'David Omondi',
-               role: 'Creative Director',
-               bio: 'Music producer and videographer with a passion for digital arts'
-             }
-           ].map((member, index) => (
-             <motion.div
-               key={index+1}
-               initial={{ opacity: 0, y: 20 }}
-               whileInView={{ opacity: 1, y: 0 }}
-               transition={{ duration: 0.5, delay: (index+1) * 0.1 }}
-               className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg text-center"
-             >
-               <div className="h-64 bg-gray-300 dark:bg-gray-700 flex items-center justify-center">
-                 {member.image ? (
-                   <img
-                     src={member.image}
-                     alt={member.name}
-                     className="w-full h-full object-cover"
-                   />
-                 ) : (
-                   <span className="text-gray-500 dark:text-gray-400">Team Member Photo</span>
-                 )}
-               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-1 text-dark-slate dark:text-off-white">{member.name}</h3>
-                <p className="text-uganda-red font-semibold mb-3">{member.role}</p>
-                <p className="text-gray-600 dark:text-gray-300 text-sm">{member.bio}</p>
-              </div>
-            </motion.div>
-          ))}
+        <div className="relative h-96 flex items-center justify-center">
+          <div className="absolute w-full h-full">
+            {[
+              {
+                name: 'Eden Gilbert Kiseka',
+                role: 'Founder & CEO',
+                bio: 'Electrical & Software Engineer specializing in semiconductors, embedded systems, Android development, and UI/UX design. Implementing Material You 3 design language.',
+                image: '/2025-09-05 16.40.35.jpg'
+              },
+              {
+                name: 'Okurut Joe',
+                role: 'Telecommunications Engineer & UI/UX Designer',
+                bio: 'Telecommunications engineer and UI/UX designer specializing in user-centered design and modern interfaces',
+                image: '/2025-09-05 17.04.54.jpg'
+              },
+              {
+                name: 'Nakisanze Daisy',
+                role: 'Full Stack Software Engineer & Lead Developer',
+                bio: 'Full stack software engineer and our lead developer proficient in the backend, specializing in scalable architectures and robust backend systems',
+                image: '/107997017.jpg'
+              }
+            ].map((member, index) => (
+              <motion.div
+                key={index}
+                className="absolute w-80"
+                style={{
+                  left: '50%',
+                  top: '50%',
+                  transform: `translate(-50%, -50%) rotate(${index * 120}deg) translateY(-150px) rotate(${-index * 120}deg)`
+                }}
+                animate={{
+                  rotate: [0, 360],
+                }}
+                transition={{
+                  duration: 20,
+                  repeat: Infinity,
+                  ease: "linear"
+                }}
+              >
+                <motion.div
+                  className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg text-center"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <div className="h-64 flex items-center justify-center">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold mb-1 text-dark-slate dark:text-off-white">{member.name}</h3>
+                    <p className="text-uganda-red font-semibold mb-3">{member.role}</p>
+                    <p className="text-gray-600 dark:text-gray-300 text-sm">{member.bio}</p>
+                  </div>
+                </motion.div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
     </div>
