@@ -32,22 +32,26 @@ export default function Header() {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
-          <Link href="/products" className="text-gray-700 dark:text-gray-300 hover:text-uganda-red transition">
-            Products
-          </Link>
-          <Link href="/mentorship" className="text-gray-700 dark:text-gray-300 hover:text-uganda-red transition">
-            Mentorship
-          </Link>
-          <Link href="/blog" className="text-gray-700 dark:text-gray-300 hover:text-uganda-red transition">
-            Blog
-          </Link>
-          <Link href="/about" className="text-gray-700 dark:text-gray-300 hover:text-uganda-red transition">
-            About
-          </Link>
-          <Link href="/contact" className="bg-uganda-red hover:bg-uganda-red/90 text-white font-bold py-2 px-4 rounded-full transition">
-            Contact
-          </Link>
+        <nav className="hidden md:flex items-center">
+          <div className="flex items-center space-x-8">
+            <Link href="/products" className="text-gray-700 dark:text-gray-300 hover:text-uganda-red transition">
+              Products
+            </Link>
+            <Link href="/mentorship" className="text-gray-700 dark:text-gray-300 hover:text-uganda-red transition">
+              Mentorship
+            </Link>
+            <Link href="/blog" className="text-gray-700 dark:text-gray-300 hover:text-uganda-red transition">
+              Blog
+            </Link>
+            <Link href="/about" className="text-gray-700 dark:text-gray-300 hover:text-uganda-red transition">
+              About
+            </Link>
+          </div>
+          <div className="ml-8">
+            <Link href="/contact" className="bg-uganda-red hover:bg-uganda-red/90 text-white font-bold py-2 px-4 rounded-full transition">
+              Contact
+            </Link>
+          </div>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -70,7 +74,8 @@ export default function Header() {
         {isMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
+            animate={{ opacity: 1, height: 'auto' }
+}
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800"
           >
