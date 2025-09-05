@@ -8,6 +8,7 @@ import RoadmapSection from '@/components/RoadmapSection'
 import AnimatedShowcase from '@/components/AnimatedShowcase'
 import { AnimatedTestimonials } from '@/components/ui/animated-testimonials'
 import { AuroraBackground } from '@/components/ui/aurora-background'
+import { DraggableCardBody, DraggableCardContainer } from '@/components/ui/draggable-card'
 
 export default function Home() {
   const [isMounted, setIsMounted] = useState(false)
@@ -50,6 +51,45 @@ export default function Home() {
     },
   ];
 
+  // Science Week photos
+  const scienceWeekItems = [
+    {
+      title: "Carthigan Booth",
+      image: "https://images.unsplash.com/photo-1522199670076-285b3c7d158f?q=80&w=2668&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      className: "absolute top-10 left-[15%] rotate-[-5deg]",
+    },
+    {
+      title: "Team Presentation",
+      image: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      className: "absolute top-40 left-[25%] rotate-[-7deg]",
+    },
+    {
+      title: "Interactive Demo",
+      image: "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2673&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      className: "absolute top-5 left-[40%] rotate-[8deg]",
+    },
+    {
+      title: "Networking",
+      image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      className: "absolute top-32 left-[55%] rotate-[10deg]",
+    },
+    {
+      title: "Science Week Crowd",
+      image: "https://images.unsplash.com/photo-1540325898262-0fc2f8653a5f?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      className: "absolute top-20 right-[35%] rotate-[2deg]",
+    },
+    {
+      title: "Innovation Showcase",
+      image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      className: "absolute top-24 left-[45%] rotate-[-7deg]",
+    },
+    {
+      title: "Carthigan Team",
+      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      className: "absolute top-8 left-[30%] rotate-[4deg]",
+    },
+  ];
+
   return (
     <main className="min-h-screen bg-off-white dark:bg-dark-slate">
       {/* Hero Section with Aurora Background */}
@@ -85,6 +125,39 @@ export default function Home() {
             </motion.div>
           </div>
         </AuroraBackground>
+      </section>
+
+      {/* Carthigan at Science Week */}
+      <section className="py-16 md:py-24 bg-white dark:bg-gray-800">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-dark-slate dark:text-off-white">
+              Carthigan at Science Week
+            </h2>
+            <p className="text-xl mt-4 text-dark-slate dark:text-off-white">
+              Check out our team in action at the biggest science event in Uganda
+            </p>
+          </div>
+          
+          {/* Draggable Cards for Science Week Photos */}
+          <DraggableCardContainer className="relative flex min-h-[500px] w-full items-center justify-center overflow-hidden">
+            <p className="absolute top-1/2 mx-auto max-w-sm -translate-y-3/4 text-center text-2xl font-black text-neutral-400 md:text-4xl dark:text-neutral-800">
+              Carthigan at Uganda Science Week 2025
+            </p>
+            {scienceWeekItems.map((item, index) => (
+              <DraggableCardBody key={index} className={item.className}>
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="pointer-events-none relative z-10 h-80 w-80 object-cover rounded-lg"
+                />
+                <h3 className="mt-4 text-center text-2xl font-bold text-neutral-700 dark:text-neutral-300">
+                  {item.title}
+                </h3>
+              </DraggableCardBody>
+            ))}
+          </DraggableCardContainer>
+        </div>
       </section>
 
       {/* Featured Products */}
