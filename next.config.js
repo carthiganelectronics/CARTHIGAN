@@ -6,7 +6,9 @@ const nextConfig = {
   // Exclude supabase functions from the build
   outputFileTracingExcludes: {
     '**/*': ['./supabase/functions/**/*']
-  }
+  },
+  // Set the outputFileTracingRoot to the current directory
+  outputFileTracingRoot: __dirname,
 }
 
 module.exports = nextConfig

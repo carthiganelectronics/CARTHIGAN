@@ -18,14 +18,15 @@ export default function Header() {
         <div className="flex items-center">
           <Link href="/" className="flex items-center">
             <div className="relative h-10 w-40">
-              <BackgroundLines className="absolute inset-0" />
-              <div className="relative z-10 flex items-center">
-                <CarthiganLogo 
-                  className="h-8 w-auto" 
-                  fill="#EF4444" // Using uganda-red color
-                />
-                <span className="ml-2 text-2xl font-bold text-uganda-red">Carthigan</span>
-              </div>
+              <BackgroundLines className="absolute inset-0">
+                <div className="relative z-10 flex items-center">
+                  <CarthiganLogo 
+                    className="h-8 w-auto" 
+                    fill="#EF4444" // Using uganda-red color
+                  />
+                  <span className="ml-2 text-2xl font-bold text-uganda-red">Carthigan</span>
+                </div>
+              </BackgroundLines>
             </div>
           </Link>
         </div>
