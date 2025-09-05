@@ -128,12 +128,28 @@ export default function AboutPage() {
       <section className="mb-16">
         <h2 className="text-3xl font-bold mb-12 text-center text-dark-slate dark:text-off-white">Our Team</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg text-center"
+          >
+            <div className="h-64 flex items-center justify-center">
+              <img 
+                src="/2025-09-05 16.40.35.jpg" 
+                alt="Eden Gilbert Kiseka" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="p-6">
+              <h3 className="text-xl font-bold mb-1 text-dark-slate dark:text-off-white">Eden Gilbert Kiseka</h3>
+              <p className="text-uganda-red font-semibold mb-3">Founder & CEO</p>
+              <p className="text-gray-600 dark:text-gray-300 text-sm">
+                Electrical & Software Engineer specializing in semiconductors, embedded systems, Android development, and UI/UX design. Implementing Material You 3 design language.
+              </p>
+            </div>
+          </motion.div>
           {[
-            {
-              name: 'Eden Gilbert Kiseka',
-              role: 'Founder & CEO',
-              bio: 'Tech entrepreneur and innovator with a passion for building Uganda\'s technology ecosystem'
-            },
             {
               name: 'Samuel Mubarak',
               role: 'CTO',
@@ -151,10 +167,10 @@ export default function AboutPage() {
             }
           ].map((member, index) => (
             <motion.div
-              key={index}
+              key={index+1}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: (index+1) * 0.1 }}
               className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg text-center"
             >
               <div className="h-64 bg-gray-300 dark:bg-gray-700 flex items-center justify-center">
