@@ -152,16 +152,16 @@ export default function MentorshipPage() {
       {/* Featured Mentors */}
       <section className="mb-16">
         <h2 className="text-3xl font-bold mb-8 text-center text-dark-slate dark:text-off-white">Featured Mentors</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {mentors.map((mentor, index) => (
             <motion.div
               key={mentor.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg"
+              className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg text-center"
             >
-              <div className="h-48 bg-gray-300 dark:bg-gray-700 relative">
+              <div className="h-64 bg-gray-300 dark:bg-gray-700 relative">
                 <img 
                   src={mentor.image} 
                   alt={mentor.name} 
