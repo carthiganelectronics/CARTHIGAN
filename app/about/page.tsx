@@ -157,9 +157,10 @@ export default function AboutPage() {
                image: '/2025-09-05 17.04.54.jpg'
              },
              {
-               name: 'Grace Nakato',
-               role: 'Head of Design',
-               bio: 'UI/UX designer with expertise in creating intuitive user experiences'
+               name: 'Nakisanze Daisy',
+               role: 'Full Stack Software Engineer & Lead Developer',
+               bio: 'Full stack software engineer and our lead developer proficient in the backend, specializing in scalable architectures and robust backend systems',
+               image: '/107997017.jpg'
              },
              {
                name: 'David Omondi',
