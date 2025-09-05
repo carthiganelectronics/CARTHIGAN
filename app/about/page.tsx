@@ -42,7 +42,7 @@ export default function AboutPage() {
           <div className="order-1 lg:order-2">
             <h2 className="text-3xl font-bold mb-6 text-dark-slate dark:text-off-white">Our Story</h2>
             <p className="text-gray-700 dark:text-gray-300 mb-4 text-lg">
-              Founded in 2024, Carthigan emerged from a recognition of the challenges faced by students, hobbyists, and professionals in accessing quality technology resources in Uganda.
+              Founded in 2025 by Eden Gilbert Kiseka and Okurut Joe, Carthigan emerged from a recognition of the challenges faced by students, hobbyists, and professionals in accessing quality technology resources in Uganda.
             </p>
             <p className="text-gray-700 dark:text-gray-300 mb-4 text-lg">
               What started as a small initiative to import Arduino boards and electronic components has grown into a comprehensive platform serving diverse technological and creative needs.
