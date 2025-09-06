@@ -22,6 +22,7 @@ export default function Home() {
   const [showEmbeddedModal, setShowEmbeddedModal] = useState(false)
   const [showArduinoModal, setShowArduinoModal] = useState(false)
   const [showUiUxModal, setShowUiUxModal] = useState(false)
+  const [showSemiconductorModal, setShowSemiconductorModal] = useState(false)
 
   useEffect(() => {
     setIsMounted(true)
@@ -221,6 +222,7 @@ export default function Home() {
            <AnimatedShowcase
              onEmbeddedClick={() => setShowEmbeddedModal(true)}
              onUiUxClick={() => setShowUiUxModal(true)}
+             onSemiconductorClick={() => setShowSemiconductorModal(true)}
            />
         </div>
       </section>
@@ -1462,6 +1464,211 @@ export default function Home() {
                     className="bg-uganda-red hover:bg-uganda-red/90 text-white font-bold py-3 px-6 rounded-full transition duration-300"
                   >
                     Start Your Project
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Semiconductor Research Modal */}
+      {showSemiconductorModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white dark:bg-gray-800 rounded-lg max-w-6xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="text-3xl font-bold text-dark-slate dark:text-off-white">Semiconductor Research & Chip Design</h3>
+                <button
+                  onClick={() => setShowSemiconductorModal(false)}
+                  className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </button>
+              </div>
+
+              <div className="mb-6">
+                <p className="text-lg mb-4 text-gray-700 dark:text-gray-300">
+                  <strong>Advanced Semiconductor Technology for Africa's Future</strong>
+                </p>
+                <p className="text-gray-700 dark:text-gray-300 mb-4">
+                  Our semiconductor research focuses on chip design, fabrication processes, and integrated circuit development. We bridge the gap between academic research and practical applications, bringing semiconductor technology to African innovation ecosystems.
+                </p>
+              </div>
+
+              {/* PCB Design & Fabrication */}
+              <div className="mb-8">
+                <h4 className="text-2xl font-semibold mb-4 text-dark-slate dark:text-off-white">PCB Design & Prototyping</h4>
+                <div className="mb-4">
+                  <img
+                    src="/IMAGE 2025-09-05 17:49:00.jpg"
+                    alt="PCB Design Services"
+                    className="w-full h-64 object-cover rounded-lg"
+                  />
+                </div>
+                <p className="text-gray-700 dark:text-gray-300 mb-4">
+                  Professional PCB design services using industry-standard tools and methodologies. Our designs ensure optimal performance, manufacturability, and cost-effectiveness.
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white mb-2">Design Capabilities:</h5>
+                    <ul className="list-disc list-inside text-sm text-gray-700 dark:text-gray-300">
+                      <li>Multi-layer PCB design</li>
+                      <li>High-speed signal integrity</li>
+                      <li>Power distribution optimization</li>
+                      <li>Thermal management</li>
+                      <li>EMI/EMC compliance</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white mb-2">Tools & Software:</h5>
+                    <ul className="list-disc list-inside text-sm text-gray-700 dark:text-gray-300">
+                      <li>Altium Designer</li>
+                      <li>Kicad (open-source)</li>
+                      <li>Gerber file generation</li>
+                      <li>Design rule checking</li>
+                      <li>3D visualization</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Microcontroller Integration */}
+              <div className="mb-8">
+                <h4 className="text-2xl font-semibold mb-4 text-dark-slate dark:text-off-white">Microcontroller & Embedded Systems</h4>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                  <img src="/images/IMAGE 2025-09-06 16:47:00.jpg" alt="Arduino boards" className="w-full h-32 object-cover rounded-lg" />
+                  <img src="/images/IMAGE 2025-09-06 16:47:02.jpg" alt="ESP32 modules" className="w-full h-32 object-cover rounded-lg" />
+                  <img src="/images/IMAGE 2025-09-06 16:47:06.jpg" alt="Raspberry Pi" className="w-full h-32 object-cover rounded-lg" />
+                  <img src="/images/IMAGE 2025-09-06 16:47:09.jpg" alt="STM32 boards" className="w-full h-32 object-cover rounded-lg" />
+                </div>
+                <p className="text-gray-700 dark:text-gray-300 mb-4">
+                  Advanced microcontroller platforms for semiconductor research and prototyping. From Arduino to STM32, we provide the computational foundation for your semiconductor projects.
+                </p>
+                <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                  <h5 className="font-semibold text-dark-slate dark:text-off-white mb-2">Supported Platforms:</h5>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm text-gray-700 dark:text-gray-300">
+                    <div>• Arduino (Uno, Mega, Nano)</div>
+                    <div>• ESP32 (WiFi/Bluetooth)</div>
+                    <div>• Raspberry Pi (4, Zero)</div>
+                    <div>• STM32 (ARM Cortex-M)</div>
+                    <div>• Teensy (High-performance)</div>
+                    <div>• PIC Microcontrollers</div>
+                    <div>• AVR Series</div>
+                    <div>• ARM Development Boards</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Research Areas */}
+              <div className="mb-8">
+                <h4 className="text-2xl font-semibold mb-4 text-dark-slate dark:text-off-white">Research Focus Areas</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white mb-2">Analog & Mixed-Signal Design</h5>
+                    <ul className="list-disc list-inside text-sm text-gray-700 dark:text-gray-300">
+                      <li>Operational amplifier design</li>
+                      <li>Analog-to-digital converters</li>
+                      <li>Data acquisition systems</li>
+                      <li>Sensor interface circuits</li>
+                      <li>Power management ICs</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white mb-2">Digital System Design</h5>
+                    <ul className="list-disc list-inside text-sm text-gray-700 dark:text-gray-300">
+                      <li>FPGA development</li>
+                      <li>ASIC prototyping</li>
+                      <li>Digital signal processing</li>
+                      <li>Embedded system architecture</li>
+                      <li>Real-time operating systems</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white mb-2">RF & Wireless</h5>
+                    <ul className="list-disc list-inside text-sm text-gray-700 dark:text-gray-300">
+                      <li>RF transceiver design</li>
+                      <li>Antenna design and matching</li>
+                      <li>IoT communication protocols</li>
+                      <li>Wireless sensor networks</li>
+                      <li>5G technology research</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white mb-2">Power Electronics</h5>
+                    <ul className="list-disc list-inside text-sm text-gray-700 dark:text-gray-300">
+                      <li>DC-DC converter design</li>
+                      <li>Motor control systems</li>
+                      <li>Renewable energy systems</li>
+                      <li>Battery management</li>
+                      <li>Power semiconductor devices</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Semiconductor Education */}
+              <div className="mb-8">
+                <h4 className="text-2xl font-semibold mb-4 text-dark-slate dark:text-off-white">Education & Training</h4>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="text-center">
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white mb-2">Workshops</h5>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Hands-on training in PCB design, microcontroller programming, and semiconductor fundamentals.</p>
+                  </div>
+                  <div className="text-center">
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white mb-2">Research Projects</h5>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Collaborative research initiatives with universities and research institutions across Africa.</p>
+                  </div>
+                  <div className="text-center">
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white mb-2">Industry Partnerships</h5>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Connections with semiconductor companies and fabrication facilities for advanced research.</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Local Impact */}
+              <div className="mb-8">
+                <h4 className="text-2xl font-semibold mb-4 text-dark-slate dark:text-off-white">Building Local Semiconductor Capacity</h4>
+                <div className="bg-uganda-red/10 dark:bg-uganda-red/20 rounded-lg p-6">
+                  <p className="text-gray-700 dark:text-gray-300 mb-4">
+                    We're committed to developing semiconductor expertise in Uganda and East Africa. Our research focuses on:
+                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <ul className="list-disc list-inside text-gray-700 dark:text-gray-300">
+                      <li>Local fabrication capabilities</li>
+                      <li>Indigenous chip design</li>
+                      <li>Technology transfer programs</li>
+                      <li>Educational curriculum development</li>
+                    </ul>
+                    <ul className="list-disc list-inside text-gray-700 dark:text-gray-300">
+                      <li>Industry-academia partnerships</li>
+                      <li>Open-source semiconductor tools</li>
+                      <li>Startup incubation support</li>
+                      <li>International collaboration networks</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div className="text-center">
+                <p className="text-lg mb-4 text-gray-700 dark:text-gray-300">
+                  Ready to explore the frontiers of semiconductor technology? Let's design the future of African innovation together.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <button
+                    onClick={() => setShowSemiconductorModal(false)}
+                    className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-full transition duration-300"
+                  >
+                    Close
+                  </button>
+                  <Link
+                    href="/contact"
+                    onClick={() => setShowSemiconductorModal(false)}
+                    className="bg-uganda-red hover:bg-uganda-red/90 text-white font-bold py-3 px-6 rounded-full transition duration-300"
+                  >
+                    Start Research Project
                   </Link>
                 </div>
               </div>

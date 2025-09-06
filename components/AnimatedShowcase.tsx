@@ -15,9 +15,10 @@ interface ShowcaseItem {
 interface AnimatedShowcaseProps {
   onEmbeddedClick?: () => void
   onUiUxClick?: () => void
+  onSemiconductorClick?: () => void
 }
 
-export default function AnimatedShowcase({ onEmbeddedClick, onUiUxClick }: AnimatedShowcaseProps) {
+export default function AnimatedShowcase({ onEmbeddedClick, onUiUxClick, onSemiconductorClick }: AnimatedShowcaseProps) {
   const [activeCategory, setActiveCategory] = useState('all')
   
   const showcaseItems: ShowcaseItem[] = [
@@ -63,7 +64,8 @@ export default function AnimatedShowcase({ onEmbeddedClick, onUiUxClick }: Anima
       title: 'Semiconductor Research',
       description: 'Chip design and fabrication research projects',
       category: 'electronics',
-      image: '/images/IMAGE 2025-09-06 16:47:06.jpg'
+      image: '/IMAGE 2025-09-05 17:49:00.jpg',
+      onClick: onSemiconductorClick
     }
   ]
 
