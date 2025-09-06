@@ -20,6 +20,12 @@ interface CartItem extends Service {
 export default function Cart({ onClose }: { onClose: () => void }) {
   const [cartItems, setCartItems] = useState<CartItem[]>([])
   const [total, setTotal] = useState(0)
+  const [showCheckout, setShowCheckout] = useState(false)
+  const [checkoutForm, setCheckoutForm] = useState({
+    email: '',
+    phone: '',
+    location: ''
+  })
 
   // Load cart from localStorage on mount
   useEffect(() => {
@@ -61,6 +67,41 @@ export default function Cart({ onClose }: { onClose: () => void }) {
 
   const clearCart = () => {
     setCartItems([])
+  }
+
+  const handleCheckout = () => {
+    setShowCheckout(true)
+  }
+
+  const handleCheckoutSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+
+    // Prepare order data for backend
+    const orderData = {
+      items: cartItems,
+      total: total,
+      customer: checkoutForm,
+      timestamp: new Date().toISOString()
+    }
+
+    // TODO: Send to backend (Supabase)
+    console.log('Order submitted:', orderData)
+
+    // For now, show success message
+    alert('Thank you for your order! We will contact you soon to complete the transaction.')
+
+    // Clear cart and close
+    setCartItems([])
+    setShowCheckout(false)
+    onClose()
+  }
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setCheckoutForm(prev => ({
+      ...prev,
+      [name]: value
+    }))
   }
 
   return (
@@ -150,21 +191,138 @@ export default function Cart({ onClose }: { onClose: () => void }) {
                   >
                     Clear Cart
                   </button>
-                  <button 
-                    onClick={() => {
-                      // Handle checkout logic
-                      console.log('Proceeding to checkout', cartItems)
-                      onClose()
-                    }}
-                    className="w-full bg-uganda-red hover:bg-uganda-red/90 text-white font-bold py-3 rounded-full transition duration-300"
-                  >
-                    Proceed to Checkout
-                  </button>
+                   <button
+                     onClick={handleCheckout}
+                     className="w-full bg-uganda-red hover:bg-uganda-red/90 text-white font-bold py-3 rounded-full transition duration-300"
+                   >
+                     Proceed to Checkout
+                   </button>
                 </div>
               </>
             )}
           </div>
         </motion.div>
+      </AnimatePresence>
+
+      {/* Checkout Modal */}
+      <AnimatePresence>
+        {showCheckout && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="bg-white dark:bg-gray-800 rounded-lg max-w-md w-full max-h-[90vh] overflow-y-auto"
+            >
+              <div className="p-6">
+                <div className="flex justify-between items-center mb-6">
+                  <h3 className="text-xl font-bold text-dark-slate dark:text-off-white">Complete Your Order</h3>
+                  <button
+                    onClick={() => setShowCheckout(false)}
+                    className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                  >
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                  </button>
+                </div>
+
+                {/* Order Summary */}
+                <div className="mb-6 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                  <h4 className="font-semibold text-dark-slate dark:text-off-white mb-2">Order Summary</h4>
+                  <div className="space-y-1 text-sm">
+                    {cartItems.map((item) => (
+                      <div key={item.id} className="flex justify-between">
+                        <span>{item.name} (x{item.quantity})</span>
+                        <span>UGX {(item.price * item.quantity).toLocaleString()}</span>
+                      </div>
+                    ))}
+                    <div className="border-t border-gray-300 dark:border-gray-600 pt-1 mt-2 flex justify-between font-semibold">
+                      <span>Total:</span>
+                      <span className="text-uganda-red">UGX {total.toLocaleString()}</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Checkout Form */}
+                <form onSubmit={handleCheckoutSubmit} className="space-y-4">
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      value={checkoutForm.email}
+                      onChange={handleInputChange}
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-uganda-red focus:border-transparent dark:bg-gray-700 dark:text-white"
+                      placeholder="your.email@example.com"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                      Phone Number *
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      required
+                      value={checkoutForm.phone}
+                      onChange={handleInputChange}
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-uganda-red focus:border-transparent dark:bg-gray-700 dark:text-white"
+                      placeholder="+256 XXX XXX XXX"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="location" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                      Location *
+                    </label>
+                    <textarea
+                      id="location"
+                      name="location"
+                      required
+                      value={checkoutForm.location}
+                      onChange={handleInputChange}
+                      rows={3}
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-uganda-red focus:border-transparent dark:bg-gray-700 dark:text-white"
+                      placeholder="Enter your full address or location details"
+                    />
+                  </div>
+
+                  <div className="pt-4 space-y-3">
+                    <button
+                      type="submit"
+                      className="w-full bg-uganda-red hover:bg-uganda-red/90 text-white font-bold py-3 rounded-full transition duration-300"
+                    >
+                      Complete Order
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setShowCheckout(false)}
+                      className="w-full bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-medium py-2 rounded-full transition duration-300"
+                    >
+                      Back to Cart
+                    </button>
+                  </div>
+                </form>
+
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-4 text-center">
+                  * Required fields. Your information will be securely stored for order processing.
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
       </AnimatePresence>
     </>
   )
