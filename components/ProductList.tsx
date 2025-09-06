@@ -16,9 +16,10 @@ interface Product {
 interface ProductListProps {
   onEdenPasteClick?: () => void
   onPcbDesignClick?: () => void
+  onMentorshipClick?: () => void
 }
 
-export default function ProductList({ onEdenPasteClick, onPcbDesignClick }: ProductListProps) {
+export default function ProductList({ onEdenPasteClick, onPcbDesignClick, onMentorshipClick }: ProductListProps) {
   const [products, setProducts] = useState<Product[]>([])
   const [loading, setLoading] = useState(true)
 
@@ -26,12 +27,12 @@ export default function ProductList({ onEdenPasteClick, onPcbDesignClick }: Prod
     // Featured products and services
     const featuredProducts: Product[] = [
       {
-        id: 1,
-        name: 'Microcontrollers',
-        description: 'Arduino, Raspberry Pi, and other microcontrollers for embedded systems',
-        price: 15000,
-        category: 'Electrical Components',
-        image: 'https://images.unsplash.com/photo-1505228395891-9a51e7814e02?auto=format&fit=crop&w=500'
+        id: 4,
+        name: 'Mentorships on All Services',
+        description: 'Expert guidance across electronics, software, creative arts, and all our services',
+        price: 30000,
+        category: 'Mentorship',
+        image: '/images/IMAGE 2025-09-06 16:33:57.jpg'
       },
       {
         id: 2,
@@ -84,6 +85,7 @@ export default function ProductList({ onEdenPasteClick, onPcbDesignClick }: Prod
           onClick={
             product.id === 2 && onEdenPasteClick ? onEdenPasteClick :
             product.id === 3 && onPcbDesignClick ? onPcbDesignClick :
+            product.id === 4 && onMentorshipClick ? onMentorshipClick :
             undefined
           }
         >
@@ -91,7 +93,7 @@ export default function ProductList({ onEdenPasteClick, onPcbDesignClick }: Prod
             product.id === 2 ? 'cursor-pointer border-uganda-red/20' :
             product.id === 1 ? 'border-blue-500/20' :
             product.id === 3 ? 'cursor-pointer border-green-500/20' :
-            product.id === 4 ? 'border-amber-600/20' :
+            product.id === 4 ? 'cursor-pointer border-amber-600/20' :
             'border-black/[0.1]'
           }`}>
             <CardItem

@@ -16,6 +16,7 @@ export default function Home() {
   const [isMounted, setIsMounted] = useState(false)
   const [showEdenPasteModal, setShowEdenPasteModal] = useState(false)
   const [showPcbDesignModal, setShowPcbDesignModal] = useState(false)
+  const [showMentorshipModal, setShowMentorshipModal] = useState(false)
 
   useEffect(() => {
     setIsMounted(true)
@@ -216,6 +217,7 @@ export default function Home() {
            <ProductList
              onEdenPasteClick={() => setShowEdenPasteModal(true)}
              onPcbDesignClick={() => setShowPcbDesignModal(true)}
+             onMentorshipClick={() => setShowMentorshipModal(true)}
            />
         </div>
       </section>
@@ -436,6 +438,168 @@ export default function Home() {
                     Join Waitlist
                   </button>
                 </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Mentorship Modal */}
+      {showMentorshipModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white dark:bg-gray-800 rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="text-3xl font-bold text-dark-slate dark:text-off-white">Comprehensive Mentorship Program</h3>
+                <button
+                  onClick={() => setShowMentorshipModal(false)}
+                  className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </button>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                <img
+                  src="/images/IMAGE 2025-09-06 16:33:57.jpg"
+                  alt="Mentorship session 1"
+                  className="w-full h-32 object-cover rounded-lg"
+                />
+                <img
+                  src="/images/IMAGE 2025-09-06 16:34:00.jpg"
+                  alt="Mentorship session 2"
+                  className="w-full h-32 object-cover rounded-lg"
+                />
+                <img
+                  src="/images/IMAGE 2025-09-06 16:34:02.jpg"
+                  alt="Mentorship session 3"
+                  className="w-full h-32 object-cover rounded-lg"
+                />
+                <img
+                  src="/images/IMAGE 2025-09-06 16:34:05.jpg"
+                  alt="Mentorship session 4"
+                  className="w-full h-32 object-cover rounded-lg"
+                />
+                <img
+                  src="/images/IMAGE 2025-09-06 16:34:08.jpg"
+                  alt="Mentorship session 5"
+                  className="w-full h-32 object-cover rounded-lg"
+                />
+                <img
+                  src="/images/IMAGE 2025-09-06 16:34:11.jpg"
+                  alt="Mentorship session 6"
+                  className="w-full h-32 object-cover rounded-lg"
+                />
+              </div>
+
+              <div className="mb-6">
+                <h4 className="text-2xl font-semibold mb-4 text-dark-slate dark:text-off-white">Expert Guidance Across All Services</h4>
+                <p className="text-lg mb-4 text-gray-700 dark:text-gray-300">
+                  Our mentorship program provides personalized guidance from industry experts across all our service areas. Whether you're a beginner or looking to advance your skills, we connect you with the right mentor for your goals.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
+                <div>
+                  <h4 className="text-xl font-semibold mb-4 text-dark-slate dark:text-off-white">Available Mentorship Areas</h4>
+                  <ul className="space-y-3 text-gray-700 dark:text-gray-300">
+                    <li className="flex items-start">
+                      <span className="text-uganda-red mr-2">•</span>
+                      <span><strong>Electronics & Embedded Systems:</strong> Circuit design, microcontrollers, IoT</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-uganda-red mr-2">•</span>
+                      <span><strong>Software Development:</strong> Programming, app development, algorithms</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-uganda-red mr-2">•</span>
+                      <span><strong>Creative Arts:</strong> Digital art, music production, content creation</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-uganda-red mr-2">•</span>
+                      <span><strong>Business & Entrepreneurship:</strong> Startup guidance, project management</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-uganda-red mr-2">•</span>
+                      <span><strong>Engineering Services:</strong> PCB design, prototyping, manufacturing</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-uganda-red mr-2">•</span>
+                      <span><strong>Education & Workshops:</strong> Teaching skills, curriculum development</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="text-xl font-semibold mb-4 text-dark-slate dark:text-off-white">Mentorship Benefits</h4>
+                  <div className="space-y-4">
+                    <div className="border-l-4 border-uganda-red pl-4">
+                      <h5 className="font-semibold text-dark-slate dark:text-off-white">Personalized Learning</h5>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">One-on-one sessions tailored to your pace and goals</p>
+                    </div>
+                    <div className="border-l-4 border-uganda-yellow pl-4">
+                      <h5 className="font-semibold text-dark-slate dark:text-off-white">Industry Insights</h5>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">Learn from experienced professionals in Uganda's tech ecosystem</p>
+                    </div>
+                    <div className="border-l-4 border-green-500 pl-4">
+                      <h5 className="font-semibold text-dark-slate dark:text-off-white">Practical Projects</h5>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">Work on real-world projects and build your portfolio</p>
+                    </div>
+                    <div className="border-l-4 border-blue-500 pl-4">
+                      <h5 className="font-semibold text-dark-slate dark:text-off-white">Networking</h5>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">Connect with peers and industry professionals</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-6 mb-6">
+                <h4 className="text-xl font-semibold mb-3 text-dark-slate dark:text-off-white">How It Works</h4>
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-uganda-red rounded-full flex items-center justify-center text-white font-bold text-lg mb-2 mx-auto">1</div>
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white">Choose Area</h5>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Select your interest area</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-uganda-yellow rounded-full flex items-center justify-center text-dark-slate font-bold text-lg mb-2 mx-auto">2</div>
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white">Match</h5>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">We match you with the right mentor</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-lg mb-2 mx-auto">3</div>
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white">Learn</h5>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Regular sessions and project work</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-lg mb-2 mx-auto">4</div>
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white">Grow</h5>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Build skills and achieve your goals</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="text-center">
+                <p className="text-lg mb-4 text-gray-700 dark:text-gray-300">
+                  Ready to accelerate your learning journey? Let's find your perfect mentor.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <button
+                    onClick={() => setShowMentorshipModal(false)}
+                    className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-full transition duration-300"
+                  >
+                    Close
+                  </button>
+                  <Link
+                    href="/contact"
+                    onClick={() => setShowMentorshipModal(false)}
+                    className="bg-uganda-red hover:bg-uganda-red/90 text-white font-bold py-3 px-6 rounded-full transition duration-300"
+                  >
+                    Start Mentorship
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
