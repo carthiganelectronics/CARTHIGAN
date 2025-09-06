@@ -15,35 +15,35 @@ export default function RoadmapSection() {
     {
       id: 1,
       title: "Website Launch",
-      description: "Complete website with homepage, products, mentorship, and about pages",
+      description: "Complete website with homepage, products, mentorship, about, and contact pages",
       date: "Q1 2025",
       completed: true
     },
     {
       id: 2,
       title: "Electronics Store Launch",
-      description: "Online store for Arduino, ESP modules, sensors, and components",
+      description: "Online store for Arduino, ESP modules, sensors, and components with shopping cart",
       date: "Q1 2025",
       completed: true
     },
     {
       id: 3,
       title: "Mentorship Program Launch",
-      description: "Connect students with industry professionals in tech",
+      description: "Comprehensive mentorship across electronics, software, creative arts, and all services",
       date: "Q2 2025",
       completed: true
     },
     {
       id: 4,
       title: "Science Week Participation",
-      description: "Showcase Carthigan at Uganda Science Week 2025",
+      description: "Showcase Carthigan at Uganda Science Week 2025 with interactive demos",
       date: "Q2 2025",
       completed: true
     },
     {
       id: 5,
       title: "Eden Paste Development",
-      description: "Launch our invisible typing assistant app with waitlist",
+      description: "Launch our invisible typing assistant app with comprehensive waitlist system",
       date: "Q3 2025",
       completed: true
     },
@@ -56,34 +56,55 @@ export default function RoadmapSection() {
     },
     {
       id: 7,
+      title: "PCB Design Services",
+      description: "Professional PCB design, schematic capture, and manufacturing preparation",
+      date: "Q3 2025",
+      completed: true
+    },
+    {
+      id: 8,
+      title: "Microcontrollers Catalog",
+      description: "Comprehensive catalog of Arduino, ESP32, Raspberry Pi, and STM32 boards",
+      date: "Q3 2025",
+      completed: true
+    },
+    {
+      id: 9,
+      title: "Interactive Product Modals",
+      description: "Detailed product information modals with images and specifications",
+      date: "Q3 2025",
+      completed: true
+    },
+    {
+      id: 10,
       title: "Blog & Content Platform",
       description: "Launch educational blog with tutorials, project guides, and industry insights",
       date: "Q4 2025",
       completed: false
     },
     {
-      id: 8,
+      id: 11,
       title: "Community Features",
       description: "Forum, project showcase, and collaboration tools for members",
       date: "Q4 2025",
       completed: false
     },
     {
-      id: 9,
+      id: 12,
       title: "Semiconductor Education",
       description: "Courses and resources on chip design and fabrication",
       date: "Q1 2026",
       completed: false
     },
     {
-      id: 10,
+      id: 13,
       title: "Local Manufacturing Hub",
       description: "Establish PCB fabrication and electronics assembly in Uganda",
       date: "2026",
       completed: false
     },
     {
-      id: 11,
+      id: 14,
       title: "Innovation Lab",
       description: "Physical space for prototyping, testing, and collaborative development",
       date: "2026",
