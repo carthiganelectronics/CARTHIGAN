@@ -184,103 +184,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Our Inventions */}
+      {/* Introducing Aceternity UI Pro */}
       <section className="py-16 md:py-24 bg-off-white dark:bg-dark-slate">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-dark-slate dark:text-off-white">
-              Our Inventions
+              Introducing Aceternity UI Pro
             </h2>
             <p className="text-xl mt-4 text-dark-slate dark:text-off-white">
-              Real-world solutions developed by our team to address challenges in Uganda and beyond
+              70+ premium component packs and templates to build amazing websites.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
-              <img 
-                src="/IMAGE 2025-09-06 14:33:20.jpg" 
-                alt="Smart Agriculture System" 
-                className="w-full h-48 object-cover rounded-lg mb-4"
-              />
-              <h3 className="text-xl font-bold mb-2 text-dark-slate dark:text-off-white">
-                Smart Agriculture System
-              </h3>
-              <p className="text-dark-slate dark:text-off-white">
-                IoT-based farming solution helping Ugandan farmers optimize crop yields and reduce water usage.
-              </p>
-            </div>
-
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
-              <img 
-                src="/IMAGE 2025-09-06 14:33:23.jpg" 
-                alt="Solar Power Bank" 
-                className="w-full h-48 object-cover rounded-lg mb-4"
-              />
-              <h3 className="text-xl font-bold mb-2 text-dark-slate dark:text-off-white">
-                Solar Power Bank
-              </h3>
-              <p className="text-dark-slate dark:text-off-white">
-                Portable renewable energy solution designed for rural communities with limited electricity access.
-              </p>
-            </div>
-
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
-              <img 
-                src="/IMAGE 2025-09-06 14:33:26.jpg" 
-                alt="Water Quality Monitor" 
-                className="w-full h-48 object-cover rounded-lg mb-4"
-              />
-              <h3 className="text-xl font-bold mb-2 text-dark-slate dark:text-off-white">
-                Water Quality Monitor
-              </h3>
-              <p className="text-dark-slate dark:text-off-white">
-                Real-time water testing device ensuring safe drinking water for communities across Uganda.
-              </p>
-            </div>
-
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
-              <img 
-                src="/IMAGE 2025-09-06 14:33:31.jpg" 
-                alt="Educational Robotics Kit" 
-                className="w-full h-48 object-cover rounded-lg mb-4"
-              />
-              <h3 className="text-xl font-bold mb-2 text-dark-slate dark:text-off-white">
-                Educational Robotics Kit
-              </h3>
-              <p className="text-dark-slate dark:text-off-white">
-                Affordable STEM education tools bringing robotics and programming to Ugandan schools.
-              </p>
-            </div>
-
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
-              <img 
-                src="/IMAGE 2025-09-06 14:33:36.jpg" 
-                alt="Telemedicine Device" 
-                className="w-full h-48 object-cover rounded-lg mb-4"
-              />
-              <h3 className="text-xl font-bold mb-2 text-dark-slate dark:text-off-white">
-                Telemedicine Device
-              </h3>
-              <p className="text-dark-slate dark:text-off-white">
-                Remote health monitoring system connecting rural patients with urban healthcare professionals.
-              </p>
-            </div>
-
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
-              <img 
-                src="/IMAGE 2025-09-06 14:33:38.jpg" 
-                alt="Weather Station" 
-                className="w-full h-48 object-cover rounded-lg mb-4"
-              />
-              <h3 className="text-xl font-bold mb-2 text-dark-slate dark:text-off-white">
-                Weather Station
-              </h3>
-              <p className="text-dark-slate dark:text-off-white">
-                Low-cost meteorological equipment providing accurate weather data for farmers and researchers.
-              </p>
-            </div>
-          </div>
+          <FocusCards cards={focusCardsData} />
         </div>
       </section>
 
