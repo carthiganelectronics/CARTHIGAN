@@ -18,6 +18,7 @@ export default function Home() {
   const [showPcbDesignModal, setShowPcbDesignModal] = useState(false)
   const [showMentorshipModal, setShowMentorshipModal] = useState(false)
   const [showMicrocontrollersModal, setShowMicrocontrollersModal] = useState(false)
+  const [showMakanikaModal, setShowMakanikaModal] = useState(false)
 
   useEffect(() => {
     setIsMounted(true)
@@ -91,8 +92,8 @@ export default function Home() {
       src: "/screen.png",
     },
     {
-      title: "Templates",
-      src: "https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      title: "MAKANIKA",
+      src: "/IMAGE 2025-09-06 17:44:03.jpg",
     },
     {
       title: "Showcase",
@@ -182,12 +183,13 @@ export default function Home() {
              </p>
            </div>
 
-           <FocusCards
-             cards={focusCardsData}
-             onCardClick={(index) => {
-               if (index === 0) setShowEdenPasteModal(true)
-             }}
-           />
+            <FocusCards
+              cards={focusCardsData}
+              onCardClick={(index) => {
+                if (index === 0) setShowEdenPasteModal(true)
+                if (index === 1) setShowMakanikaModal(true)
+              }}
+            />
         </div>
       </section>
 
@@ -870,6 +872,76 @@ export default function Home() {
                     Get Started
                   </Link>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* MAKANIKA Modal */}
+      {showMakanikaModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white dark:bg-gray-800 rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-2xl font-bold text-dark-slate dark:text-off-white">MAKANIKA</h3>
+                <button
+                  onClick={() => setShowMakanikaModal(false)}
+                  className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </button>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <img
+                  src="/IMAGE 2025-09-06 17:44:03.jpg"
+                  alt="MAKANIKA screenshot 1"
+                  className="w-full h-48 object-cover rounded-lg"
+                />
+                <img
+                  src="/IMAGE 2025-09-06 17:44:41.jpg"
+                  alt="MAKANIKA screenshot 2"
+                  className="w-full h-48 object-cover rounded-lg"
+                />
+              </div>
+              <p className="text-lg mb-4 text-gray-700 dark:text-gray-300">
+                MAKANIKA – Buganda's Own Road-Side Rescue
+              </p>
+              <p className="mb-4 text-gray-700 dark:text-gray-300">
+                Built for the roads of Lolo, spoken in Luganda, priced in shillings, and staffed by mechanics who know every pothole from Namirembe to Nabweru.
+              </p>
+              <p className="mb-4 text-gray-700 dark:text-gray-300">
+                One tap, and a verified makanika races to you—live on your screen, no haggling, no guesswork.
+              </p>
+              <p className="mb-4 text-gray-700 dark:text-gray-300">
+                Diagnosis happens in your language, prices appear before spanners turn, and you only pay after you're back on the road.
+              </p>
+              <p className="mb-4 text-gray-700 dark:text-gray-300">
+                Offline mode, mobile-money ready, daylight-dark theme—everything tuned for Buganda drivers.
+              </p>
+              <p className="mb-4 text-gray-700 dark:text-gray-300">
+                Keep MAKANIKA on your phone; the next breakdown in Lolo just became a 5-minute pause, not a day-long problem.
+              </p>
+              <div className="text-center">
+                <form onSubmit={(e) => { e.preventDefault(); alert('Thank you for joining the MAKANIKA waitlist! We\'ll notify you when the app is ready.'); setShowMakanikaModal(false); }} className="flex flex-col gap-4">
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    required
+                    className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-uganda-red dark:bg-gray-700 dark:text-white"
+                  />
+                  <input
+                    type="tel"
+                    placeholder="Enter your phone number"
+                    required
+                    className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-uganda-red dark:bg-gray-700 dark:text-white"
+                  />
+                  <button type="submit" className="bg-uganda-red hover:bg-uganda-red/90 text-white font-bold py-2 px-6 rounded-full transition duration-300">
+                    Join MAKANIKA Waitlist
+                  </button>
+                </form>
               </div>
             </div>
           </div>
