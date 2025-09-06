@@ -13,7 +13,11 @@ interface Product {
   image: string
 }
 
-export default function ProductList() {
+interface ProductListProps {
+  onEdenPasteClick?: () => void
+}
+
+export default function ProductList({ onEdenPasteClick }: ProductListProps) {
   const [products, setProducts] = useState<Product[]>([])
   const [loading, setLoading] = useState(true)
 
@@ -31,10 +35,10 @@ export default function ProductList() {
       {
         id: 2,
         name: 'EdenPaste',
-        description: 'Our typing engine made in Python with Go for performance',
+        description: 'Invisible typing assistant that lives in the corner of your screen. Write once, let Eden type everywhere.',
         price: 0,
         category: 'Software',
-        image: 'https://images.unsplash.com/photo-1505228395891-9a51e7814e02?auto=format&fit=crop&w=500'
+        image: '/images/IMAGE 2025-09-06 15:48:34.jpg'
       },
       {
         id: 3,
@@ -73,8 +77,12 @@ export default function ProductList() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
       {products.map((product) => (
-        <CardContainer className="inter-var" key={product.id}>
-          <CardBody className="bg-white dark:bg-gray-800 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border">
+        <CardContainer
+          className="inter-var"
+          key={product.id}
+          onClick={product.id === 2 && onEdenPasteClick ? onEdenPasteClick : undefined}
+        >
+          <CardBody className={`bg-white dark:bg-gray-800 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border ${product.id === 2 ? 'cursor-pointer' : ''}`}>
             <CardItem
               translateZ="50"
               className="text-xl font-bold text-neutral-600 dark:text-white"
@@ -113,14 +121,14 @@ export default function ProductList() {
                   {product.category}
                 </span>
               </CardItem>
-              <CardItem
-                translateZ={20}
-                translateX={40}
-                as="button"
-                className="px-4 py-2 rounded-xl bg-dark-slate dark:bg-white dark:text-black text-white text-xs font-bold"
-              >
-                {product.price === 0 ? 'Free Download' : `UGX ${product.price.toLocaleString()}`}
-              </CardItem>
+               <CardItem
+                 translateZ={20}
+                 translateX={40}
+                 as="button"
+                 className="px-4 py-2 rounded-xl bg-dark-slate dark:bg-white dark:text-black text-white text-xs font-bold"
+               >
+                 {product.id === 2 ? 'Coming Soon' : product.price === 0 ? 'Free Download' : `UGX ${product.price.toLocaleString()}`}
+               </CardItem>
             </div>
           </CardBody>
         </CardContainer>

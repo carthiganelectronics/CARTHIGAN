@@ -18,10 +18,12 @@ export const CardContainer = ({
   children,
   className,
   containerClassName,
+  onClick,
 }: {
   children?: React.ReactNode;
   className?: string;
   containerClassName?: string;
+  onClick?: () => void;
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isMouseEntered, setIsMouseEntered] = useState(false);
@@ -61,6 +63,7 @@ export const CardContainer = ({
           onMouseEnter={handleMouseEnter}
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
+          onClick={onClick}
           className={cn(
             "flex items-center justify-center relative transition-all duration-200 ease-linear",
             className
