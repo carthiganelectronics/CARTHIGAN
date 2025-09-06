@@ -15,6 +15,7 @@ import { FocusCards } from '@/components/ui/focus-cards'
 export default function Home() {
   const [isMounted, setIsMounted] = useState(false)
   const [showEdenPasteModal, setShowEdenPasteModal] = useState(false)
+  const [showPcbDesignModal, setShowPcbDesignModal] = useState(false)
 
   useEffect(() => {
     setIsMounted(true)
@@ -212,7 +213,10 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-dark-slate dark:text-off-white">
             Featured Products
           </h2>
-           <ProductList onEdenPasteClick={() => setShowEdenPasteModal(true)} />
+           <ProductList
+             onEdenPasteClick={() => setShowEdenPasteModal(true)}
+             onPcbDesignClick={() => setShowPcbDesignModal(true)}
+           />
         </div>
       </section>
 
@@ -432,6 +436,131 @@ export default function Home() {
                     Join Waitlist
                   </button>
                 </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* PCB Design Modal */}
+      {showPcbDesignModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white dark:bg-gray-800 rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="text-3xl font-bold text-dark-slate dark:text-off-white">Professional PCB Design Services</h3>
+                <button
+                  onClick={() => setShowPcbDesignModal(false)}
+                  className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </button>
+              </div>
+
+              <div className="mb-6">
+                <img
+                  src="/IMAGE 2025-09-05 17:49:00.jpg"
+                  alt="PCB Design Services"
+                  className="w-full h-64 object-cover rounded-lg"
+                />
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
+                <div>
+                  <h4 className="text-2xl font-semibold mb-4 text-dark-slate dark:text-off-white">What We Offer</h4>
+                  <ul className="space-y-3 text-gray-700 dark:text-gray-300">
+                    <li className="flex items-start">
+                      <span className="text-uganda-red mr-2">•</span>
+                      <span>Single-sided, double-sided, and multi-layer PCB design</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-uganda-red mr-2">•</span>
+                      <span>Schematic capture and PCB layout</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-uganda-red mr-2">•</span>
+                      <span>Design rule checking (DRC) and layout verification</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-uganda-red mr-2">•</span>
+                      <span>Gerber file generation for manufacturing</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-uganda-red mr-2">•</span>
+                      <span>Bill of Materials (BOM) creation</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-uganda-red mr-2">•</span>
+                      <span>Design optimization for cost and performance</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="text-2xl font-semibold mb-4 text-dark-slate dark:text-off-white">Our Process</h4>
+                  <div className="space-y-4">
+                    <div className="border-l-4 border-uganda-red pl-4">
+                      <h5 className="font-semibold text-dark-slate dark:text-off-white">1. Consultation</h5>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">Discuss your requirements and specifications</p>
+                    </div>
+                    <div className="border-l-4 border-uganda-yellow pl-4">
+                      <h5 className="font-semibold text-dark-slate dark:text-off-white">2. Schematic Design</h5>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">Create detailed circuit schematics</p>
+                    </div>
+                    <div className="border-l-4 border-green-500 pl-4">
+                      <h5 className="font-semibold text-dark-slate dark:text-off-white">3. PCB Layout</h5>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">Design the physical board layout</p>
+                    </div>
+                    <div className="border-l-4 border-blue-500 pl-4">
+                      <h5 className="font-semibold text-dark-slate dark:text-off-white">4. Review & Testing</h5>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">Quality assurance and final delivery</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-6 mb-6">
+                <h4 className="text-xl font-semibold mb-3 text-dark-slate dark:text-off-white">Why Choose Carthigan for PCB Design?</h4>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="text-center">
+                    <div className="text-2xl mb-2">🎯</div>
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white">Precision</h5>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Industry-standard design practices</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl mb-2">⚡</div>
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white">Speed</h5>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Fast turnaround times</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl mb-2">💰</div>
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white">Cost-Effective</h5>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Competitive pricing for quality work</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="text-center">
+                <p className="text-lg mb-4 text-gray-700 dark:text-gray-300">
+                  Ready to bring your electronic ideas to life? Let's design your perfect PCB together.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <button
+                    onClick={() => setShowPcbDesignModal(false)}
+                    className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-full transition duration-300"
+                  >
+                    Close
+                  </button>
+                  <Link
+                    href="/contact"
+                    onClick={() => setShowPcbDesignModal(false)}
+                    className="bg-uganda-red hover:bg-uganda-red/90 text-white font-bold py-3 px-6 rounded-full transition duration-300"
+                  >
+                    Get Started
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
