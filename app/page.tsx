@@ -93,7 +93,7 @@ export default function Home() {
     },
     {
       title: "MAKANIKA",
-      src: "/IMAGE 2025-09-06 17:44:03.jpg",
+      src: "/images/IMAGE 2025-09-06 17:44:03.jpg",
     },
     {
       title: "Showcase",
@@ -896,12 +896,12 @@ export default function Home() {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                 <img
-                  src="/IMAGE 2025-09-06 17:44:03.jpg"
+                  src="/images/IMAGE 2025-09-06 17:44:03.jpg"
                   alt="MAKANIKA screenshot 1"
                   className="w-full h-48 object-cover rounded-lg"
                 />
                 <img
-                  src="/IMAGE 2025-09-06 17:44:41.jpg"
+                  src="/images/IMAGE 2025-09-06 17:44:41.jpg"
                   alt="MAKANIKA screenshot 2"
                   className="w-full h-48 object-cover rounded-lg"
                 />
