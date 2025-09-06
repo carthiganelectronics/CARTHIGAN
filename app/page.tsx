@@ -525,18 +525,15 @@ export default function Home() {
                 <h4 className="text-xl font-semibold mb-3 text-dark-slate dark:text-off-white">Why Choose Carthigan for PCB Design?</h4>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div className="text-center">
-                    <div className="text-2xl mb-2">🎯</div>
-                    <h5 className="font-semibold text-dark-slate dark:text-off-white">Precision</h5>
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white mb-2">Precision</h5>
                     <p className="text-sm text-gray-600 dark:text-gray-400">Industry-standard design practices</p>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl mb-2">⚡</div>
-                    <h5 className="font-semibold text-dark-slate dark:text-off-white">Speed</h5>
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white mb-2">Speed</h5>
                     <p className="text-sm text-gray-600 dark:text-gray-400">Fast turnaround times</p>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl mb-2">💰</div>
-                    <h5 className="font-semibold text-dark-slate dark:text-off-white">Cost-Effective</h5>
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white mb-2">Cost-Effective</h5>
                     <p className="text-sm text-gray-600 dark:text-gray-400">Competitive pricing for quality work</p>
                   </div>
                 </div>
