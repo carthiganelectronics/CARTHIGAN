@@ -14,6 +14,7 @@ import { FocusCards } from '@/components/ui/focus-cards'
 
 export default function Home() {
   const [isMounted, setIsMounted] = useState(false)
+  const [showEdenPasteModal, setShowEdenPasteModal] = useState(false)
 
   useEffect(() => {
     setIsMounted(true)
@@ -98,11 +99,11 @@ export default function Home() {
     },
   ];
 
-  // Focus Cards data for Aceternity UI Pro showcase
+  // Focus Cards data for Our Innovations showcase
   const focusCardsData = [
     {
-      title: "Components",
-      src: "https://images.unsplash.com/photo-1517479149777-5f3b1511d5ad?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      title: "Eden Paste",
+      src: "/screen.png",
     },
     {
       title: "Templates",
@@ -196,7 +197,12 @@ export default function Home() {
              </p>
            </div>
 
-          <FocusCards cards={focusCardsData} />
+           <FocusCards
+             cards={focusCardsData}
+             onCardClick={(index) => {
+               if (index === 0) setShowEdenPasteModal(true)
+             }}
+           />
         </div>
       </section>
 
@@ -259,6 +265,67 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Eden Paste Modal */}
+      {showEdenPasteModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white dark:bg-gray-800 rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-2xl font-bold text-dark-slate dark:text-off-white">Eden Paste</h3>
+                <button
+                  onClick={() => setShowEdenPasteModal(false)}
+                  className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </button>
+              </div>
+              <p className="text-lg mb-4 text-gray-700 dark:text-gray-300">
+                The invisible typing assistant that lives in the corner of your screen.
+              </p>
+              <p className="mb-4 text-gray-700 dark:text-gray-300">
+                Write once—let Eden type it everywhere.
+              </p>
+              <p className="mb-4 text-gray-700 dark:text-gray-300">
+                Open the cheerful, round-edged editor, drop in any text (an address, code snippet, emoji storm, whatever). Tap "Start Typing" and the window melts into a tiny, color-shifting bubble that glides to the corner. Eden then types your words—at human speed—into the form, doc, chat or browser field you chose, while you sit back and watch the cursor dance. When it's done the bubble quietly fades away, ready to be summoned again with a shortcut.
+              </p>
+              <p className="mb-4 text-gray-700 dark:text-gray-300">
+                No more ⌘-C / ⌘-V gymnastics, no macros to remember. Just type, start, and Eden handles the rest.
+              </p>
+              <h4 className="text-xl font-semibold mb-2 text-dark-slate dark:text-off-white">Features</h4>
+              <ul className="list-disc list-inside mb-4 text-gray-700 dark:text-gray-300">
+                <li>Living Material You 3 interface—colors adapt to your wallpaper, shapes breathe while typing</li>
+                <li>Zero-distraction workflow: editor collapses to a draggable bubble, stays out of your way</li>
+                <li>Works everywhere: Slack, Notion, Google Sheets, Terminal, game chat—any field that accepts text</li>
+                <li>Adjustable speed, pause & resume, target-switch on the fly</li>
+                <li>Private: nothing leaves your machine; history is stored locally and can be wiped in one click</li>
+                <li>Accessible: full keyboard navigation, high-contrast mode, screen-reader labels</li>
+              </ul>
+              <p className="text-lg font-semibold text-uganda-red mb-4">
+                Eden Paste — less copying, more creating.
+              </p>
+              <p className="text-center text-gray-600 dark:text-gray-400 mb-4">
+                The app is coming soon. Users can join the waitlist.
+              </p>
+              <div className="text-center">
+                <form onSubmit={(e) => { e.preventDefault(); alert('Thank you for joining the waitlist! We\'ll notify you when Eden Paste is ready.'); setShowEdenPasteModal(false); }} className="flex flex-col gap-4">
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    required
+                    className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-uganda-red dark:bg-gray-700 dark:text-white"
+                  />
+                  <button type="submit" className="bg-uganda-red hover:bg-uganda-red/90 text-white font-bold py-2 px-6 rounded-full transition duration-300">
+                    Join Waitlist
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   )
 }

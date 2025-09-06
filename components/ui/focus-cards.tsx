@@ -9,17 +9,20 @@ export const Card = React.memo(
     index,
     hovered,
     setHovered,
+    onClick,
   }: {
     card: any;
     index: number;
     hovered: number | null;
     setHovered: React.Dispatch<React.SetStateAction<number | null>>;
+    onClick?: () => void;
   }) => (
     <div
       onMouseEnter={() => setHovered(index)}
       onMouseLeave={() => setHovered(null)}
+      onClick={onClick}
       className={cn(
-        "rounded-lg relative bg-gray-100 dark:bg-neutral-900 overflow-hidden h-60 md:h-96 w-full transition-all duration-300 ease-out",
+        "rounded-lg relative bg-gray-100 dark:bg-neutral-900 overflow-hidden h-60 md:h-96 w-full transition-all duration-300 ease-out cursor-pointer",
         hovered !== null && hovered !== index && "blur-sm scale-[0.98]"
       )}
     >
@@ -49,7 +52,7 @@ type Card = {
   src: string;
 };
 
-export function FocusCards({ cards }: { cards: Card[] }) {
+export function FocusCards({ cards, onCardClick }: { cards: Card[]; onCardClick?: (index: number) => void }) {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
@@ -61,6 +64,7 @@ export function FocusCards({ cards }: { cards: Card[] }) {
           index={index}
           hovered={hovered}
           setHovered={setHovered}
+          onClick={onCardClick ? () => onCardClick(index) : undefined}
         />
       ))}
     </div>
