@@ -50,7 +50,7 @@ export default function AnimatedShowcase({ onEmbeddedClick, onUiUxClick, onSemic
       title: 'Novel Writing Tools',
       description: 'Software and resources for authors and writers',
       category: 'creative',
-      image: 'https://images.unsplash.com/photo-1505228395891-9a51e7814e02?auto=format&fit=crop&w=500'
+      image: '/images/fabien-maurin-BY9DgxMeYo0-unsplash.jpg'
     },
     {
       id: 5,
