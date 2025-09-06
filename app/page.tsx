@@ -98,20 +98,38 @@ export default function Home() {
     },
   ];
 
-  // Focus Cards data for Aceternity UI Pro showcase
-  const focusCardsData = [
+  // Carthigan Inventions Showcase
+  const inventionsData = [
     {
-      title: "Components",
-      src: "https://images.unsplash.com/photo-1517479149777-5f3b1511d5ad?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      title: "Smart Agriculture IoT System",
+      src: "/inventions/smart-farming.jpg",
+      description: "IoT sensors and automated irrigation for precision farming"
     },
     {
-      title: "Templates",
-      src: "https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      title: "Solar-Powered Water Purifier",
+      src: "/inventions/water-purifier.jpg", 
+      description: "Low-cost solar purification system for rural communities"
     },
     {
-      title: "Showcase",
-      src: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      title: "Educational Robotics Kit",
+      src: "/inventions/robotics-kit.jpg",
+      description: "STEM education tools for schools across Uganda"
     },
+    {
+      title: "Mobile Health Diagnostics",
+      src: "/inventions/health-diagnostics.jpg",
+      description: "Portable medical devices for remote healthcare"
+    },
+    {
+      title: "Renewable Energy Storage",
+      src: "/inventions/energy-storage.jpg",
+      description: "Battery management systems for solar installations"
+    },
+    {
+      title: "Smart Traffic Management",
+      src: "/inventions/traffic-system.jpg",
+      description: "AI-powered traffic optimization for urban areas"
+    }
   ];
 
   return (
@@ -184,19 +202,36 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Introducing Aceternity UI Pro */}
+      {/* Carthigan Inventions */}
       <section className="py-16 md:py-24 bg-off-white dark:bg-dark-slate">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-dark-slate dark:text-off-white">
-              Introducing Aceternity UI Pro
+              Our Inventions
             </h2>
             <p className="text-xl mt-4 text-dark-slate dark:text-off-white">
-              70+ premium component packs and templates to build amazing websites.
+              Real-world solutions developed by our team to address challenges in Uganda and beyond
             </p>
           </div>
 
-          <FocusCards cards={focusCardsData} />
+          {/* Carthigan Inventions Showcase */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {inventionsData.map((invention, index) => (
+              <WobbleCard key={index} className="flex flex-col items-center text-center p-6">
+                <img
+                  src={invention.src}
+                  alt={invention.title}
+                  className="w-full max-h-48 object-contain mb-4 rounded-lg"
+                />
+                <h3 className="text-2xl font-bold text-dark-slate dark:text-off-white mb-2">
+                  {invention.title}
+                </h3>
+                <p className="text-lg text-dark-slate dark:text-off-white">
+                  {invention.description}
+                </p>
+              </WobbleCard>
+            ))}
+          </div>
         </div>
       </section>
 
