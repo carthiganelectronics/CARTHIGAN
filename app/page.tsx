@@ -187,14 +187,14 @@ export default function Home() {
       {/* Introducing Aceternity UI Pro */}
       <section className="py-16 md:py-24 bg-off-white dark:bg-dark-slate">
         <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-dark-slate dark:text-off-white">
-              Introducing Aceternity UI Pro
-            </h2>
-            <p className="text-xl mt-4 text-dark-slate dark:text-off-white">
-              70+ premium component packs and templates to build amazing websites.
-            </p>
-          </div>
+           <div className="text-center max-w-3xl mx-auto mb-12">
+             <h2 className="text-3xl md:text-4xl font-bold text-dark-slate dark:text-off-white">
+               Our Innovations
+             </h2>
+             <p className="text-xl mt-4 text-dark-slate dark:text-off-white">
+               Discover our cutting-edge innovations in electronics, embedded systems, and software technology.
+             </p>
+           </div>
 
           <FocusCards cards={focusCardsData} />
         </div>
