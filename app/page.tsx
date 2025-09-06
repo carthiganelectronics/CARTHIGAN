@@ -105,21 +105,7 @@ export default function Home() {
     },
   ];
 
-  // Photos section data
-  const photosData = [
-    {
-      title: "Team Photos",
-      src: "/images/IMAGE 2025-09-06 14:33:20.jpg",
-    },
-    {
-      title: "Project Showcase",
-      src: "/images/IMAGE 2025-09-06 14:33:23.jpg",
-    },
-    {
-      title: "Workshop Sessions",
-      src: "/images/IMAGE 2025-09-06 14:33:26.jpg",
-    },
-  ];
+
 
   return (
     <main className="min-h-screen bg-off-white dark:bg-dark-slate">
@@ -191,27 +177,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Carthigan Photos */}
-      <section className="py-16 md:py-24 bg-off-white dark:bg-dark-slate">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-dark-slate dark:text-off-white">
-              Carthigan Photos
-            </h2>
-            <p className="text-xl mt-4 text-dark-slate dark:text-off-white">
-              Explore our journey through captivating moments and milestones
-            </p>
-          </div>
 
-          <FocusCards
-            cards={photosData}
-            onCardClick={(index) => {
-              // Photos can be expanded or lead to galleries in the future
-              console.log('Photo clicked:', index);
-            }}
-          />
-        </div>
-      </section>
 
       {/* Our Innovations */}
       <section className="py-16 md:py-24 bg-off-white dark:bg-dark-slate">
