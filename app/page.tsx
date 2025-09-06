@@ -20,6 +20,7 @@ export default function Home() {
   const [showMicrocontrollersModal, setShowMicrocontrollersModal] = useState(false)
   const [showMakanikaModal, setShowMakanikaModal] = useState(false)
   const [showEmbeddedModal, setShowEmbeddedModal] = useState(false)
+  const [showArduinoModal, setShowArduinoModal] = useState(false)
 
   useEffect(() => {
     setIsMounted(true)
@@ -97,8 +98,8 @@ export default function Home() {
       src: "/images/IMAGE 2025-09-06 17:44:03.jpg",
     },
     {
-      title: "Showcase",
-      src: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      title: "Arduino-Based Infant Incubator & Environmental Monitor",
+      src: "/images/IMAGE 2025-09-06 18:09:18.jpg",
     },
   ];
 
@@ -189,6 +190,7 @@ export default function Home() {
               onCardClick={(index) => {
                 if (index === 0) setShowEdenPasteModal(true)
                 if (index === 1) setShowMakanikaModal(true)
+                if (index === 2) setShowArduinoModal(true)
               }}
             />
         </div>
@@ -1075,6 +1077,218 @@ export default function Home() {
                     Start Your Project
                   </Link>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Arduino-Based Infant Incubator & Environmental Monitor Modal */}
+      {showArduinoModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white dark:bg-gray-800 rounded-lg max-w-6xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="text-3xl font-bold text-dark-slate dark:text-off-white">Arduino-Based Infant Incubator & Environmental Monitor</h3>
+                <button
+                  onClick={() => setShowArduinoModal(false)}
+                  className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </button>
+              </div>
+
+              <div className="mb-6">
+                <p className="text-lg mb-4 text-gray-700 dark:text-gray-300">
+                  <strong>Dual-Purpose Health Monitor</strong> - Technical Documentation by Eden Gilbert Kiseka & Okurut Joe
+                </p>
+                <p className="text-gray-700 dark:text-gray-300 mb-4">
+                  This dual-purpose system addresses critical health monitoring needs in resource-limited settings by providing: Mode 1: Infant incubator environmental monitoring (temperature, humidity) and Mode 2: Indoor air quality monitoring with basic Air Quality Index (AQI).
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <img
+                  src="/images/IMAGE 2025-09-06 18:09:18.jpg"
+                  alt="Arduino-Based Infant Incubator"
+                  className="w-full h-48 object-cover rounded-lg"
+                />
+                <img
+                  src="/images/IMAGE 2025-09-06 18:09:48.jpg"
+                  alt="Environmental Monitor"
+                  className="w-full h-48 object-cover rounded-lg"
+                />
+              </div>
+
+              {/* Key Features */}
+              <div className="mb-8">
+                <h4 className="text-2xl font-semibold mb-4 text-dark-slate dark:text-off-white">Key Features</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <ul className="list-disc list-inside text-gray-700 dark:text-gray-300">
+                    <li>Real-time temperature and humidity monitoring</li>
+                    <li>Air quality assessment using MQ-135 sensor</li>
+                    <li>Multiple display options (OLED, LCD, 7-segment)</li>
+                    <li>Visual alert system with colored LEDs</li>
+                    <li>User-adjustable threshold settings</li>
+                    <li>Low-cost, replicable design</li>
+                  </ul>
+                  <div>
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white mb-2">Target Applications:</h5>
+                    <ul className="list-disc list-inside text-sm text-gray-700 dark:text-gray-300">
+                      <li>Neonatal care units</li>
+                      <li>Health center waiting areas</li>
+                      <li>Community health programs</li>
+                      <li>Home environmental monitoring</li>
+                      <li>Educational demonstrations</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Hardware Components */}
+              <div className="mb-8">
+                <h4 className="text-2xl font-semibold mb-4 text-dark-slate dark:text-off-white">Hardware Components</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white mb-2">Core Components:</h5>
+                    <ul className="list-disc list-inside text-sm text-gray-700 dark:text-gray-300">
+                      <li>Arduino Uno R3 microcontroller</li>
+                      <li>DHT22 Temperature/Humidity Sensor</li>
+                      <li>LM35 Temperature Sensor (redundancy)</li>
+                      <li>MQ-135 Air Quality Sensor</li>
+                      <li>SSD1306 OLED Display</li>
+                      <li>16x2 LCD Display with I2C</li>
+                      <li>7-Segment Display</li>
+                      <li>74HC595 Shift Register</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white mb-2">Estimated Cost: ~$92</h5>
+                    <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                      <div className="text-sm text-gray-700 dark:text-gray-300">
+                        <div className="flex justify-between mb-1"><span>Arduino Uno R3:</span><span>$25</span></div>
+                        <div className="flex justify-between mb-1"><span>Sensors (DHT22, LM35, MQ-135):</span><span>$20</span></div>
+                        <div className="flex justify-between mb-1"><span>Displays (OLED, LCD, 7-seg):</span><span>$17</span></div>
+                        <div className="flex justify-between mb-1"><span>Support Components:</span><span>$15</span></div>
+                        <div className="flex justify-between mb-1"><span>Enclosure & Assembly:</span><span>$15</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Operating Modes */}
+              <div className="mb-8">
+                <h4 className="text-2xl font-semibold mb-4 text-dark-slate dark:text-off-white">Operating Modes</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="border-l-4 border-blue-500 pl-4">
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white">Mode 1: Infant Incubator</h5>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">Environmental monitoring for neonatal care</p>
+                    <ul className="list-disc list-inside text-sm text-gray-700 dark:text-gray-300">
+                      <li>Temperature range: 32-38°C optimal</li>
+                      <li>Humidity monitoring</li>
+                      <li>Visual alerts for out-of-range conditions</li>
+                      <li>Redundancy with dual temperature sensors</li>
+                    </ul>
+                  </div>
+                  <div className="border-l-4 border-green-500 pl-4">
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white">Mode 2: Air Quality Monitor</h5>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">Indoor environmental assessment</p>
+                    <ul className="list-disc list-inside text-sm text-gray-700 dark:text-gray-300">
+                      <li>AQI scale: 0-9 (0-2 excellent, 7-9 poor)</li>
+                      <li>Detects NH3, NOx, CO2, benzene</li>
+                      <li>Real-time air quality alerts</li>
+                      <li>Environmental trend monitoring</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Technical Specifications */}
+              <div className="mb-8">
+                <h4 className="text-2xl font-semibold mb-4 text-dark-slate dark:text-off-white">Technical Specifications</h4>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white mb-2">Temperature Sensors</h5>
+                    <ul className="text-sm text-gray-700 dark:text-gray-300">
+                      <li>DHT22: ±0.5°C accuracy</li>
+                      <li>LM35: ±0.5°C accuracy</li>
+                      <li>Range: 0-50°C</li>
+                      <li>Response time: 2 seconds</li>
+                    </ul>
+                  </div>
+                  <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white mb-2">Air Quality Sensor</h5>
+                    <ul className="text-sm text-gray-700 dark:text-gray-300">
+                      <li>MQ-135: NH3, NOx, CO2 detection</li>
+                      <li>Range: 10-300ppm</li>
+                      <li>Warm-up time: 60 seconds</li>
+                      <li>Service life: 2-3 years</li>
+                    </ul>
+                  </div>
+                  <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white mb-2">System Specs</h5>
+                    <ul className="text-sm text-gray-700 dark:text-gray-300">
+                      <li>Power: 5V DC, 300-500mA</li>
+                      <li>Operating temp: 0-50°C</li>
+                      <li>Humidity: 10-90% RH</li>
+                      <li>Update rate: 2 seconds</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Educational Value */}
+              <div className="mb-8">
+                <h4 className="text-2xl font-semibold mb-4 text-dark-slate dark:text-off-white">Educational & Practical Applications</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white mb-2">Learning Outcomes:</h5>
+                    <ul className="list-disc list-inside text-sm text-gray-700 dark:text-gray-300">
+                      <li>Embedded systems programming</li>
+                      <li>Sensor integration and calibration</li>
+                      <li>Healthcare technology applications</li>
+                      <li>Environmental monitoring principles</li>
+                      <li>Human-centered design for health</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white mb-2">Impact:</h5>
+                    <ul className="list-disc list-inside text-sm text-gray-700 dark:text-gray-300">
+                      <li>Affordable healthcare solutions</li>
+                      <li>Community health program support</li>
+                      <li>Educational tool for students</li>
+                      <li>Research platform for innovations</li>
+                      <li>Local manufacturing opportunity</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div className="text-center">
+                <p className="text-lg mb-4 text-gray-700 dark:text-gray-300">
+                  This project demonstrates how affordable, open-source technology can create meaningful healthcare solutions for resource-limited settings.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <button
+                    onClick={() => setShowArduinoModal(false)}
+                    className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-full transition duration-300"
+                  >
+                    Close
+                  </button>
+                  <Link
+                    href="/contact"
+                    onClick={() => setShowArduinoModal(false)}
+                    className="bg-uganda-red hover:bg-uganda-red/90 text-white font-bold py-3 px-6 rounded-full transition duration-300"
+                  >
+                    Learn More
+                  </Link>
+                </div>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mt-4">
+                  <strong>Authors:</strong> Eden Gilbert Kiseka & Okurut Joe | <strong>Date:</strong> May 26, 2025 | <strong>Version:</strong> 1.0
+                </p>
               </div>
             </div>
           </div>
