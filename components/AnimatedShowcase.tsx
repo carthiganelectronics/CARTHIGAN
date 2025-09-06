@@ -25,7 +25,7 @@ export default function AnimatedShowcase({ onEmbeddedClick }: AnimatedShowcasePr
       title: 'Embedded Systems Projects',
       description: 'IoT devices, robotics, and automation solutions',
       category: 'electronics',
-      image: 'https://images.unsplash.com/photo-1505228395891-9a51e7814e02?auto=format&fit=crop&w=500',
+      image: '/images/IMAGE 2025-09-06 16:47:00.jpg',
       onClick: onEmbeddedClick
     },
     {
