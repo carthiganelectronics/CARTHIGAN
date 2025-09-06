@@ -246,6 +246,99 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Custom Projects Section */}
+      <section className="py-16 md:py-24 bg-white dark:bg-gray-800">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-dark-slate dark:text-off-white">
+                Custom Projects & Services
+              </h2>
+              <p className="text-xl text-gray-600 dark:text-gray-300">
+                Have a unique project in mind? We handle custom electronics, software, and creative work
+              </p>
+            </div>
+
+            <div className="bg-off-white dark:bg-dark-slate rounded-2xl p-8 shadow-lg">
+              <form onSubmit={(e) => { e.preventDefault(); alert('Thank you! We\'ll review your project and get back to you within 24 hours.'); }} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      Email Address
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-full focus:ring-2 focus:ring-uganda-yellow focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                      placeholder="your.email@example.com"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      Phone Number
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-full focus:ring-2 focus:ring-uganda-yellow focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                      placeholder="+256 XXX XXX XXX"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="service" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    Service Type
+                  </label>
+                  <select
+                    id="service"
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-full focus:ring-2 focus:ring-uganda-yellow focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                  >
+                    <option value="">Select a service</option>
+                    <option value="electronics">Electronics & Embedded Systems</option>
+                    <option value="software">Software Development</option>
+                    <option value="engineering">Engineering Services</option>
+                    <option value="creative">Creative Writing & Arts</option>
+                    <option value="music">Music Production</option>
+                    <option value="mentorship">Mentorship</option>
+                    <option value="education">Education & Workshops</option>
+                    <option value="business">Business Consulting</option>
+                    <option value="manufacturing">Manufacturing & 3D Printing</option>
+                    <option value="other">Other (specify below)</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label htmlFor="project" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    Project Description
+                  </label>
+                  <textarea
+                    id="project"
+                    required
+                    rows={6}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-uganda-yellow focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                    placeholder="Describe your project, requirements, timeline, and any specific details..."
+                  ></textarea>
+                </div>
+
+                <div className="text-center pt-4">
+                  <button
+                    type="submit"
+                    className="bg-uganda-red hover:bg-uganda-red/90 text-white font-bold py-3 px-8 rounded-full transition duration-300"
+                  >
+                    Submit Project Request
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Call to Action */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 text-center">
@@ -256,8 +349,8 @@ export default function Home() {
             Join our network of tech enthusiasts, creators, and innovators in Uganda
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link 
-              href="/contact" 
+            <Link
+              href="/contact"
               className="bg-dark-slate hover:bg-dark-slate/90 text-off-white font-bold py-3 px-8 rounded-full transition duration-300 dark:bg-off-white dark:text-dark-slate dark:hover:bg-off-white/90"
             >
               Get in Touch
@@ -281,6 +374,18 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
                   </svg>
                 </button>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <img
+                  src="/images/IMAGE 2025-09-06 15:48:34.jpg"
+                  alt="Eden Paste screenshot 1"
+                  className="w-full h-48 object-cover rounded-lg"
+                />
+                <img
+                  src="/images/IMAGE 2025-09-06 15:48:37.jpg"
+                  alt="Eden Paste screenshot 2"
+                  className="w-full h-48 object-cover rounded-lg"
+                />
               </div>
               <p className="text-lg mb-4 text-gray-700 dark:text-gray-300">
                 The invisible typing assistant that lives in the corner of your screen.
@@ -314,6 +419,12 @@ export default function Home() {
                   <input
                     type="email"
                     placeholder="Enter your email"
+                    required
+                    className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-uganda-red dark:bg-gray-700 dark:text-white"
+                  />
+                  <input
+                    type="tel"
+                    placeholder="Enter your phone number"
                     required
                     className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-uganda-red dark:bg-gray-700 dark:text-white"
                   />

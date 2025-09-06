@@ -14,29 +14,78 @@ export default function RoadmapSection() {
   const milestones: Milestone[] = [
     {
       id: 1,
-      title: "Launch Electronics Store",
-      description: "Online store for Arduino, ESP modules, and other components",
+      title: "Website Launch",
+      description: "Complete website with homepage, products, mentorship, and about pages",
       date: "Q1 2025",
       completed: true
     },
     {
       id: 2,
+      title: "Electronics Store Launch",
+      description: "Online store for Arduino, ESP modules, sensors, and components",
+      date: "Q1 2025",
+      completed: true
+    },
+    {
+      id: 3,
       title: "Mentorship Program Launch",
-      description: "Connect students with industry professionals",
+      description: "Connect students with industry professionals in tech",
       date: "Q2 2025",
       completed: true
     },
     {
       id: 4,
-      title: "Semiconductor Education",
-      description: "Courses and resources on chip design and fabrication",
+      title: "Science Week Participation",
+      description: "Showcase Carthigan at Uganda Science Week 2025",
+      date: "Q2 2025",
+      completed: true
+    },
+    {
+      id: 5,
+      title: "Eden Paste Development",
+      description: "Launch our invisible typing assistant app with waitlist",
+      date: "Q3 2025",
+      completed: true
+    },
+    {
+      id: 6,
+      title: "Custom Projects Platform",
+      description: "Online system for requesting custom electronics, software, and creative projects",
+      date: "Q3 2025",
+      completed: true
+    },
+    {
+      id: 7,
+      title: "Blog & Content Platform",
+      description: "Launch educational blog with tutorials, project guides, and industry insights",
       date: "Q4 2025",
       completed: false
     },
     {
-      id: 5,
-      title: "Local Chip Production",
-      description: "Begin manufacturing microchips in Uganda",
+      id: 8,
+      title: "Community Features",
+      description: "Forum, project showcase, and collaboration tools for members",
+      date: "Q4 2025",
+      completed: false
+    },
+    {
+      id: 9,
+      title: "Semiconductor Education",
+      description: "Courses and resources on chip design and fabrication",
+      date: "Q1 2026",
+      completed: false
+    },
+    {
+      id: 10,
+      title: "Local Manufacturing Hub",
+      description: "Establish PCB fabrication and electronics assembly in Uganda",
+      date: "2026",
+      completed: false
+    },
+    {
+      id: 11,
+      title: "Innovation Lab",
+      description: "Physical space for prototyping, testing, and collaborative development",
       date: "2026",
       completed: false
     }
