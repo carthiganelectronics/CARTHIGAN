@@ -98,38 +98,20 @@ export default function Home() {
     },
   ];
 
-  // Carthigan Inventions Showcase
-  const inventionsData = [
+  // Focus Cards data for Aceternity UI Pro showcase
+  const focusCardsData = [
     {
-      title: "Smart Agriculture IoT System",
-      src: "/inventions/smart-farming.jpg",
-      description: "IoT sensors and automated irrigation for precision farming"
+      title: "Components",
+      src: "https://images.unsplash.com/photo-1517479149777-5f3b1511d5ad?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
-      title: "Solar-Powered Water Purifier",
-      src: "/inventions/water-purifier.jpg", 
-      description: "Low-cost solar purification system for rural communities"
+      title: "Templates",
+      src: "https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
-      title: "Educational Robotics Kit",
-      src: "/inventions/robotics-kit.jpg",
-      description: "STEM education tools for schools across Uganda"
+      title: "Showcase",
+      src: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
-    {
-      title: "Mobile Health Diagnostics",
-      src: "/inventions/health-diagnostics.jpg",
-      description: "Portable medical devices for remote healthcare"
-    },
-    {
-      title: "Renewable Energy Storage",
-      src: "/inventions/energy-storage.jpg",
-      description: "Battery management systems for solar installations"
-    },
-    {
-      title: "Smart Traffic Management",
-      src: "/inventions/traffic-system.jpg",
-      description: "AI-powered traffic optimization for urban areas"
-    }
   ];
 
   return (
@@ -202,7 +184,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Carthigan Inventions */}
+      {/* Our Inventions */}
       <section className="py-16 md:py-24 bg-off-white dark:bg-dark-slate">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-12">
@@ -214,23 +196,90 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Carthigan Inventions Showcase */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {inventionsData.map((invention, index) => (
-              <WobbleCard key={index} className="flex flex-col items-center text-center p-6">
-                <img
-                  src={invention.src}
-                  alt={invention.title}
-                  className="w-full max-h-48 object-contain mb-4 rounded-lg"
-                />
-                <h3 className="text-2xl font-bold text-dark-slate dark:text-off-white mb-2">
-                  {invention.title}
-                </h3>
-                <p className="text-lg text-dark-slate dark:text-off-white">
-                  {invention.description}
-                </p>
-              </WobbleCard>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
+              <img 
+                src="/IMAGE 2025-09-06 14:33:20.jpg" 
+                alt="Smart Agriculture System" 
+                className="w-full h-48 object-cover rounded-lg mb-4"
+              />
+              <h3 className="text-xl font-bold mb-2 text-dark-slate dark:text-off-white">
+                Smart Agriculture System
+              </h3>
+              <p className="text-dark-slate dark:text-off-white">
+                IoT-based farming solution helping Ugandan farmers optimize crop yields and reduce water usage.
+              </p>
+            </div>
+
+            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
+              <img 
+                src="/IMAGE 2025-09-06 14:33:23.jpg" 
+                alt="Solar Power Bank" 
+                className="w-full h-48 object-cover rounded-lg mb-4"
+              />
+              <h3 className="text-xl font-bold mb-2 text-dark-slate dark:text-off-white">
+                Solar Power Bank
+              </h3>
+              <p className="text-dark-slate dark:text-off-white">
+                Portable renewable energy solution designed for rural communities with limited electricity access.
+              </p>
+            </div>
+
+            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
+              <img 
+                src="/IMAGE 2025-09-06 14:33:26.jpg" 
+                alt="Water Quality Monitor" 
+                className="w-full h-48 object-cover rounded-lg mb-4"
+              />
+              <h3 className="text-xl font-bold mb-2 text-dark-slate dark:text-off-white">
+                Water Quality Monitor
+              </h3>
+              <p className="text-dark-slate dark:text-off-white">
+                Real-time water testing device ensuring safe drinking water for communities across Uganda.
+              </p>
+            </div>
+
+            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
+              <img 
+                src="/IMAGE 2025-09-06 14:33:31.jpg" 
+                alt="Educational Robotics Kit" 
+                className="w-full h-48 object-cover rounded-lg mb-4"
+              />
+              <h3 className="text-xl font-bold mb-2 text-dark-slate dark:text-off-white">
+                Educational Robotics Kit
+              </h3>
+              <p className="text-dark-slate dark:text-off-white">
+                Affordable STEM education tools bringing robotics and programming to Ugandan schools.
+              </p>
+            </div>
+
+            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
+              <img 
+                src="/IMAGE 2025-09-06 14:33:36.jpg" 
+                alt="Telemedicine Device" 
+                className="w-full h-48 object-cover rounded-lg mb-4"
+              />
+              <h3 className="text-xl font-bold mb-2 text-dark-slate dark:text-off-white">
+                Telemedicine Device
+              </h3>
+              <p className="text-dark-slate dark:text-off-white">
+                Remote health monitoring system connecting rural patients with urban healthcare professionals.
+              </p>
+            </div>
+
+            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
+              <img 
+                src="/IMAGE 2025-09-06 14:33:38.jpg" 
+                alt="Weather Station" 
+                className="w-full h-48 object-cover rounded-lg mb-4"
+              />
+              <h3 className="text-xl font-bold mb-2 text-dark-slate dark:text-off-white">
+                Weather Station
+              </h3>
+              <p className="text-dark-slate dark:text-off-white">
+                Low-cost meteorological equipment providing accurate weather data for farmers and researchers.
+              </p>
+            </div>
           </div>
         </div>
       </section>
