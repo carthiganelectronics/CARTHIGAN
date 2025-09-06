@@ -85,6 +85,7 @@ export default function ProductList({ onEdenPasteClick }: ProductListProps) {
           <CardBody className={`bg-white dark:bg-gray-800 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border ${
             product.id === 2 ? 'cursor-pointer border-uganda-red/20' :
             product.id === 1 ? 'border-blue-500/20' :
+            product.id === 3 ? 'border-green-500/20' :
             'border-black/[0.1]'
           }`}>
             <CardItem
