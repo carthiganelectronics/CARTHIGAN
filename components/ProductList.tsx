@@ -46,7 +46,7 @@ export default function ProductList({ onEdenPasteClick }: ProductListProps) {
         description: 'Professional PCB design services for your electronic projects',
         price: 25000,
         category: 'Engineering Services',
-        image: 'https://images.unsplash.com/photo-1505228395891-9a51e7814e02?auto=format&fit=crop&w=500'
+        image: '/IMAGE 2025-09-05 17:49:00.jpg'
       },
       {
         id: 4,
