@@ -57,7 +57,7 @@ export default function AnimatedShowcase({ onEmbeddedClick, onUiUxClick, onSemic
       title: 'Videography and Photography',
       description: 'Professional video production, photography, and visual storytelling',
       category: 'creative',
-      image: 'https://images.unsplash.com/photos/person-holding-black-dslr-camera-4ZSnI_4xJe4?auto=format&fit=crop&w=500'
+      image: '/images/IMAGE 2025-09-06 16:34:15.jpg'
     },
     {
       id: 6,
