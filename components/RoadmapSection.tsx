@@ -77,37 +77,72 @@ export default function RoadmapSection() {
     },
     {
       id: 10,
+      title: "MAKANIKA App Development",
+      description: "Launch Buganda's road-side rescue app with Luganda interface and mobile money",
+      date: "Q3 2025",
+      completed: true
+    },
+    {
+      id: 11,
+      title: "Arduino Health Monitor",
+      description: "Dual-purpose infant incubator & environmental monitor with comprehensive documentation",
+      date: "Q3 2025",
+      completed: true
+    },
+    {
+      id: 12,
+      title: "Advanced Service Modals",
+      description: "Interactive modals for UI/UX designs, semiconductor research, and embedded systems",
+      date: "Q3 2025",
+      completed: true
+    },
+    {
+      id: 13,
       title: "Blog & Content Platform",
       description: "Launch educational blog with tutorials, project guides, and industry insights",
       date: "Q4 2025",
       completed: false
     },
     {
-      id: 11,
+      id: 14,
       title: "Community Features",
       description: "Forum, project showcase, and collaboration tools for members",
       date: "Q4 2025",
       completed: false
     },
     {
-      id: 12,
+      id: 15,
       title: "Semiconductor Education",
       description: "Courses and resources on chip design and fabrication",
       date: "Q1 2026",
       completed: false
     },
     {
-      id: 13,
+      id: 16,
       title: "Local Manufacturing Hub",
       description: "Establish PCB fabrication and electronics assembly in Uganda",
-      date: "2026",
+      date: "Q2 2026",
       completed: false
     },
     {
-      id: 14,
+      id: 17,
       title: "Innovation Lab",
       description: "Physical space for prototyping, testing, and collaborative development",
-      date: "2026",
+      date: "Q3 2026",
+      completed: false
+    },
+    {
+      id: 18,
+      title: "AI & Machine Learning Hub",
+      description: "Integrate AI/ML capabilities for smart electronics and data analytics",
+      date: "Q4 2026",
+      completed: false
+    },
+    {
+      id: 19,
+      title: "International Partnerships",
+      description: "Establish collaborations with global tech companies and universities",
+      date: "2027",
       completed: false
     }
   ]
