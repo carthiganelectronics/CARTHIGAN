@@ -61,7 +61,7 @@ export default function AnimatedShowcase({ onEmbeddedClick }: AnimatedShowcasePr
       title: 'Semiconductor Research',
       description: 'Chip design and fabrication research projects',
       category: 'electronics',
-      image: 'https://images.unsplash.com/photo-1505228395891-9a51e7814e02?auto=format&fit=crop&w=500'
+      image: '/images/IMAGE 2025-09-06 16:47:06.jpg'
     }
   ]
 
