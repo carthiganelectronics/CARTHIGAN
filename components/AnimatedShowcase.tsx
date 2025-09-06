@@ -33,7 +33,7 @@ export default function AnimatedShowcase({ onEmbeddedClick }: AnimatedShowcasePr
       title: 'UI/UX Designs',
       description: 'Modern interfaces for web and mobile applications',
       category: 'creative',
-      image: 'https://images.unsplash.com/photo-1505228395891-9a51e7814e02?auto=format&fit=crop&w=500'
+      image: '/images/IMAGE 2025-09-06 15:48:34.jpg'
     },
     {
       id: 3,
