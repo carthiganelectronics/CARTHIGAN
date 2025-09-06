@@ -733,18 +733,15 @@ export default function Home() {
                 <h4 className="text-xl font-semibold mb-3 text-dark-slate dark:text-off-white">Why Choose Our Microcontrollers?</h4>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div className="text-center">
-                    <div className="text-2xl mb-2">🔧</div>
-                    <h5 className="font-semibold text-dark-slate dark:text-off-white">Quality Assured</h5>
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white mb-2">Quality Assured</h5>
                     <p className="text-sm text-gray-600 dark:text-gray-400">Genuine boards from trusted manufacturers</p>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl mb-2">📚</div>
-                    <h5 className="font-semibold text-dark-slate dark:text-off-white">Documentation</h5>
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white mb-2">Documentation</h5>
                     <p className="text-sm text-gray-600 dark:text-gray-400">Complete guides and tutorials included</p>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl mb-2">🚀</div>
-                    <h5 className="font-semibold text-dark-slate dark:text-off-white">Ready to Use</h5>
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white mb-2">Ready to Use</h5>
                     <p className="text-sm text-gray-600 dark:text-gray-400">Pre-tested and ready for your projects</p>
                   </div>
                 </div>
