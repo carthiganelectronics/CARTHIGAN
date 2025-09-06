@@ -57,7 +57,7 @@ export default function AnimatedShowcase({ onEmbeddedClick, onUiUxClick, onSemic
       title: 'Videography and Photography',
       description: 'Professional video production, photography, and visual storytelling',
       category: 'creative',
-      image: '/images/IMAGE 2025-09-06 16:34:15.jpg'
+      image: '/images/the-ian-4ZSnI_4xJe4-unsplash.jpg'
     },
     {
       id: 6,
