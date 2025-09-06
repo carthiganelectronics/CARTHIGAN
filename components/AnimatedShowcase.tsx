@@ -43,7 +43,7 @@ export default function AnimatedShowcase({ onEmbeddedClick, onUiUxClick, onSemic
       title: 'Music Production',
       description: 'Audio editing tools and sound engineering resources',
       category: 'creative',
-      image: 'https://images.unsplash.com/photo-1505228395891-9a51e7814e02?auto=format&fit=crop&w=500'
+      image: '/images/omid-armin-0cbLoqUyz28-unsplash.jpg'
     },
     {
       id: 4,
