@@ -125,10 +125,9 @@ export default function ProductList({ onEdenPasteClick, onPcbDesignClick, onMent
                 alt={product.name}
               />
             </CardItem>
-            <div className="flex justify-between items-center mt-20">
+            <div className="flex justify-center items-center mt-20">
               <CardItem
                 translateZ={20}
-                translateX={-40}
                 as="button"
                 className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
               >
@@ -136,14 +135,6 @@ export default function ProductList({ onEdenPasteClick, onPcbDesignClick, onMent
                   {product.category}
                 </span>
               </CardItem>
-               <CardItem
-                 translateZ={20}
-                 translateX={40}
-                 as="button"
-                 className="px-4 py-2 rounded-xl bg-dark-slate dark:bg-white dark:text-black text-white text-xs font-bold"
-               >
-                 {product.id === 2 ? 'Coming Soon' : product.price === 0 ? 'Free Download' : `UGX ${product.price.toLocaleString()}`}
-               </CardItem>
             </div>
           </CardBody>
         </CardContainer>
