@@ -98,48 +98,55 @@ export default function RoadmapSection() {
     },
     {
       id: 13,
+      title: "Carthigan Photos Section",
+      description: "Interactive photo gallery section for showcasing team moments and project milestones",
+      date: "Q3 2025",
+      completed: true
+    },
+    {
+      id: 14,
       title: "Blog & Content Platform",
       description: "Launch educational blog with tutorials, project guides, and industry insights",
       date: "Q4 2025",
       completed: false
     },
     {
-      id: 14,
+      id: 15,
       title: "Community Features",
       description: "Forum, project showcase, and collaboration tools for members",
       date: "Q4 2025",
       completed: false
     },
     {
-      id: 15,
+      id: 16,
       title: "Semiconductor Education",
       description: "Courses and resources on chip design and fabrication",
       date: "Q1 2026",
       completed: false
     },
     {
-      id: 16,
+      id: 17,
       title: "Local Manufacturing Hub",
       description: "Establish PCB fabrication and electronics assembly in Uganda",
       date: "Q2 2026",
       completed: false
     },
     {
-      id: 17,
+      id: 18,
       title: "Innovation Lab",
       description: "Physical space for prototyping, testing, and collaborative development",
       date: "Q3 2026",
       completed: false
     },
     {
-      id: 18,
+      id: 19,
       title: "AI & Machine Learning Hub",
       description: "Integrate AI/ML capabilities for smart electronics and data analytics",
       date: "Q4 2026",
       completed: false
     },
     {
-      id: 19,
+      id: 20,
       title: "International Partnerships",
       description: "Establish collaborations with global tech companies and universities",
       date: "2027",
