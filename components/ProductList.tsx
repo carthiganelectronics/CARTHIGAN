@@ -86,6 +86,7 @@ export default function ProductList({ onEdenPasteClick }: ProductListProps) {
             product.id === 2 ? 'cursor-pointer border-uganda-red/20' :
             product.id === 1 ? 'border-blue-500/20' :
             product.id === 3 ? 'border-green-500/20' :
+            product.id === 4 ? 'border-amber-600/20' :
             'border-black/[0.1]'
           }`}>
             <CardItem
