@@ -61,6 +61,18 @@ export default function Home() {
       designation: "CEO & Founder, Electrical & Software Engineer",
       src: "/2025-09-05 16.40.35.jpg",
     },
+    {
+      quote: "As Carthigan's co-founder, I'm passionate about bridging telecommunications expertise with innovative design solutions. Together with our team, we're creating tools that make technology accessible and intuitive for everyone in Uganda.",
+      name: "Okurut Joe",
+      designation: "Co-Founder, Telecommunications Engineer & UI/UX Designer",
+      src: "/2025-09-05 17.04.54.jpg",
+    },
+    {
+      quote: "Leading development at Carthigan has been incredibly rewarding. Our full-stack approach ensures that every digital solution we create is robust, scalable, and user-centric, empowering Uganda's tech ecosystem.",
+      name: "Nakisanze Daisy",
+      designation: "Lead Developer, Full Stack Software Engineer",
+      src: "/107997017.jpg",
+    },
   ];
 
   // Science Week photos
