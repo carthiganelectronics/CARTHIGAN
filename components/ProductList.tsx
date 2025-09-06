@@ -51,11 +51,11 @@ export default function ProductList({ onEdenPasteClick, onPcbDesignClick, onMent
         image: '/IMAGE 2025-09-05 17:49:00.jpg'
       },
       {
-        id: 4,
-        name: 'Electronics Mentorship',
-        description: 'One-on-one mentorship for electronics enthusiasts and students',
-        price: 30000,
-        category: 'Mentorship',
+        id: 1,
+        name: 'Microcontrollers',
+        description: 'Arduino, Raspberry Pi, and other microcontrollers for embedded systems',
+        price: 15000,
+        category: 'Electrical Components',
         image: 'https://images.unsplash.com/photo-1505228395891-9a51e7814e02?auto=format&fit=crop&w=500'
       }
     ]
