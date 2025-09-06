@@ -26,36 +26,6 @@ export default function Home() {
   // Testimonial data
   const testimonials = [
     {
-      quote: "The attention to detail and innovative features have completely transformed our workflow. This is exactly what we've been looking for.",
-      name: "Sarah Chen",
-      designation: "Product Manager at TechFlow",
-      src: "https://images.unsplash.com/photo-1494790108755-2616b612b786?auto=format&fit=crop&w=500",
-    },
-    {
-      quote: "Working with Carthigan has been a game-changer for our startup. Their mentorship program helped us scale faster than we ever imagined.",
-      name: "Michael Rodriguez",
-      designation: "CEO at InnovateX",
-      src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500",
-    },
-    {
-      quote: "The quality of components and technical support is unmatched. As a hardware engineer, I rely on Carthigan for all my prototyping needs.",
-      name: "Emily Watson",
-      designation: "Hardware Engineer at CircuitWorks",
-      src: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=500",
-    },
-    {
-      quote: "I'd highly recommend working with Carthigan on a site redesign. They took our rough concept and transformed it into a polished, user-friendly website.",
-      name: "James Kim",
-      designation: "Head of Product at Fireworks",
-      src: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=500",
-    },
-    {
-      quote: "The creative resources and support have helped me launch my career as a digital artist. Carthigan truly invests in its members.",
-      name: "Lisa Thompson",
-      designation: "Digital Artist & Designer",
-      src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=500",
-    },
-    {
       quote: "As the founder and CEO of Carthigan, I'm dedicated to building Uganda's premier tech hub for electronics, embedded systems, and software technology. Our mission is to empower local innovators with world-class resources and mentorship.",
       name: "Eden Gilbert Kiseka",
       designation: "CEO & Founder, Electrical & Software Engineer",
