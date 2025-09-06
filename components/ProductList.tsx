@@ -52,12 +52,12 @@ export default function ProductList({ onEdenPasteClick, onPcbDesignClick, onMent
         image: '/IMAGE 2025-09-05 17:49:00.jpg'
       },
       {
-        id: 1,
-        name: 'Microcontrollers',
-        description: 'Arduino, Raspberry Pi, and other microcontrollers for embedded systems',
-        price: 15000,
-        category: 'Electrical Components',
-        image: 'https://images.unsplash.com/photo-1505228395891-9a51e7814e02?auto=format&fit=crop&w=500'
+        id: 4,
+        name: 'Mentorships on All Services',
+        description: 'Expert guidance across electronics, software, creative arts, and all our services',
+        price: 30000,
+        category: 'Mentorship',
+        image: '/images/IMAGE 2025-09-06 16:33:57.jpg'
       }
     ]
     
