@@ -54,10 +54,10 @@ export default function AnimatedShowcase({ onEmbeddedClick, onUiUxClick, onSemic
     },
     {
       id: 5,
-      title: 'Videography Examples',
-      description: 'Professional video production and editing techniques',
+      title: 'Videography and Photography',
+      description: 'Professional video production, photography, and visual storytelling',
       category: 'creative',
-      image: 'https://images.unsplash.com/photo-1505228395891-9a51e7814e02?auto=format&fit=crop&w=500'
+      image: 'https://images.unsplash.com/photos/person-holding-black-dslr-camera-4ZSnI_4xJe4?auto=format&fit=crop&w=500'
     },
     {
       id: 6,
