@@ -21,6 +21,7 @@ export default function Home() {
   const [showMakanikaModal, setShowMakanikaModal] = useState(false)
   const [showEmbeddedModal, setShowEmbeddedModal] = useState(false)
   const [showArduinoModal, setShowArduinoModal] = useState(false)
+  const [showUiUxModal, setShowUiUxModal] = useState(false)
 
   useEffect(() => {
     setIsMounted(true)
@@ -217,7 +218,10 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-dark-slate dark:text-off-white">
             What We Do
           </h2>
-           <AnimatedShowcase onEmbeddedClick={() => setShowEmbeddedModal(true)} />
+           <AnimatedShowcase
+             onEmbeddedClick={() => setShowEmbeddedModal(true)}
+             onUiUxClick={() => setShowUiUxModal(true)}
+           />
         </div>
       </section>
 
@@ -1289,6 +1293,177 @@ export default function Home() {
                 <p className="text-sm text-gray-600 dark:text-gray-400 mt-4">
                   <strong>Authors:</strong> Eden Gilbert Kiseka & Okurut Joe | <strong>Date:</strong> May 26, 2025 | <strong>Version:</strong> 1.0
                 </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* UI/UX Designs Modal */}
+      {showUiUxModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white dark:bg-gray-800 rounded-lg max-w-6xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="text-3xl font-bold text-dark-slate dark:text-off-white">UI/UX Design Services</h3>
+                <button
+                  onClick={() => setShowUiUxModal(false)}
+                  className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </button>
+              </div>
+
+              <div className="mb-6">
+                <p className="text-lg mb-4 text-gray-700 dark:text-gray-300">
+                  <strong>Modern Interface Design for Digital Innovation</strong>
+                </p>
+                <p className="text-gray-700 dark:text-gray-300 mb-4">
+                  We create intuitive, beautiful, and functional user interfaces that bridge the gap between technology and human experience. Our design philosophy combines cutting-edge trends with practical usability to deliver exceptional digital experiences.
+                </p>
+              </div>
+
+              {/* Eden Paste Section */}
+              <div className="mb-8">
+                <h4 className="text-2xl font-semibold mb-4 text-dark-slate dark:text-off-white">Eden Paste - Invisible Typing Assistant</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                  <img
+                    src="/images/IMAGE 2025-09-06 15:48:34.jpg"
+                    alt="Eden Paste interface design"
+                    className="w-full h-48 object-cover rounded-lg"
+                  />
+                  <img
+                    src="/images/IMAGE 2025-09-06 15:48:37.jpg"
+                    alt="Eden Paste user experience"
+                    className="w-full h-48 object-cover rounded-lg"
+                  />
+                </div>
+                <p className="text-gray-700 dark:text-gray-300 mb-4">
+                  A sleek, modern interface that lives in the corner of your screen. Our design focuses on minimalism and Material You 3 integration, creating a seamless typing experience that adapts to your system's color scheme.
+                </p>
+                <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                  <h5 className="font-semibold text-dark-slate dark:text-off-white mb-2">Design Features:</h5>
+                  <ul className="list-disc list-inside text-sm text-gray-700 dark:text-gray-300">
+                    <li>Adaptive color schemes with Material You 3</li>
+                    <li>Zero-distraction workflow design</li>
+                    <li>Intuitive gesture-based interactions</li>
+                    <li>Accessibility-first approach with high contrast modes</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* MAKANIKA Section */}
+              <div className="mb-8">
+                <h4 className="text-2xl font-semibold mb-4 text-dark-slate dark:text-off-white">MAKANIKA - Road-Side Rescue App</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                  <img
+                    src="/images/IMAGE 2025-09-06 17:44:03.jpg"
+                    alt="MAKANIKA app design"
+                    className="w-full h-48 object-cover rounded-lg"
+                  />
+                  <img
+                    src="/images/IMAGE 2025-09-06 17:44:41.jpg"
+                    alt="MAKANIKA user interface"
+                    className="w-full h-48 object-cover rounded-lg"
+                  />
+                </div>
+                <p className="text-gray-700 dark:text-gray-300 mb-4">
+                  A culturally-adapted mobile application designed specifically for Buganda's road-side mechanics. The interface incorporates local language support, familiar visual metaphors, and mobile-money integration.
+                </p>
+                <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+                  <h5 className="font-semibold text-dark-slate dark:text-off-white mb-2">Cultural UX Features:</h5>
+                  <ul className="list-disc list-inside text-sm text-gray-700 dark:text-gray-300">
+                    <li>Luganda language interface with phonetic search</li>
+                    <li>Local currency and shillings-based pricing</li>
+                    <li>Offline functionality for rural areas</li>
+                    <li>Daylight-dark theme adaptation</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Design Services */}
+              <div className="mb-8">
+                <h4 className="text-2xl font-semibold mb-4 text-dark-slate dark:text-off-white">Our Design Services</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white mb-2">User Research & Analysis</h5>
+                    <ul className="list-disc list-inside text-sm text-gray-700 dark:text-gray-300">
+                      <li>User interviews and surveys</li>
+                      <li>Competitive analysis</li>
+                      <li>Usability testing</li>
+                      <li>Persona development</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white mb-2">Design & Prototyping</h5>
+                    <ul className="list-disc list-inside text-sm text-gray-700 dark:text-gray-300">
+                      <li>Wireframing and prototyping</li>
+                      <li>Visual design systems</li>
+                      <li>Interactive prototypes</li>
+                      <li>Design system documentation</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white mb-2">Development Collaboration</h5>
+                    <ul className="list-disc list-inside text-sm text-gray-700 dark:text-gray-300">
+                      <li>Frontend development support</li>
+                      <li>Component library creation</li>
+                      <li>Design-to-code handoff</li>
+                      <li>Quality assurance</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white mb-2">Cultural Adaptation</h5>
+                    <ul className="list-disc list-inside text-sm text-gray-700 dark:text-gray-300">
+                      <li>Localization for African markets</li>
+                      <li>Cultural UX research</li>
+                      <li>Language support integration</li>
+                      <li>Offline-first design</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Design Philosophy */}
+              <div className="mb-8">
+                <h4 className="text-2xl font-semibold mb-4 text-dark-slate dark:text-off-white">Our Design Philosophy</h4>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="text-center">
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white mb-2">Human-Centered</h5>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Every design decision starts with understanding real user needs and cultural contexts.</p>
+                  </div>
+                  <div className="text-center">
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white mb-2">Inclusive</h5>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Accessibility and cultural relevance are built into every interface we create.</p>
+                  </div>
+                  <div className="text-center">
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white mb-2">Innovative</h5>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">We push boundaries while maintaining practical usability and technical feasibility.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="text-center">
+                <p className="text-lg mb-4 text-gray-700 dark:text-gray-300">
+                  Ready to create exceptional user experiences? Let's design interfaces that users love.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <button
+                    onClick={() => setShowUiUxModal(false)}
+                    className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-full transition duration-300"
+                  >
+                    Close
+                  </button>
+                  <Link
+                    href="/contact"
+                    onClick={() => setShowUiUxModal(false)}
+                    className="bg-uganda-red hover:bg-uganda-red/90 text-white font-bold py-3 px-6 rounded-full transition duration-300"
+                  >
+                    Start Your Project
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

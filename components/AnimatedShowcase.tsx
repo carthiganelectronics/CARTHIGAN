@@ -14,9 +14,10 @@ interface ShowcaseItem {
 
 interface AnimatedShowcaseProps {
   onEmbeddedClick?: () => void
+  onUiUxClick?: () => void
 }
 
-export default function AnimatedShowcase({ onEmbeddedClick }: AnimatedShowcaseProps) {
+export default function AnimatedShowcase({ onEmbeddedClick, onUiUxClick }: AnimatedShowcaseProps) {
   const [activeCategory, setActiveCategory] = useState('all')
   
   const showcaseItems: ShowcaseItem[] = [
@@ -33,7 +34,8 @@ export default function AnimatedShowcase({ onEmbeddedClick }: AnimatedShowcasePr
       title: 'UI/UX Designs',
       description: 'Modern interfaces for web and mobile applications',
       category: 'creative',
-      image: '/images/IMAGE 2025-09-06 15:48:34.jpg'
+      image: '/images/IMAGE 2025-09-06 15:48:34.jpg',
+      onClick: onUiUxClick
     },
     {
       id: 3,
