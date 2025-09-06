@@ -9,9 +9,14 @@ interface ShowcaseItem {
   description: string
   category: string
   image: string
+  onClick?: () => void
 }
 
-export default function AnimatedShowcase() {
+interface AnimatedShowcaseProps {
+  onEmbeddedClick?: () => void
+}
+
+export default function AnimatedShowcase({ onEmbeddedClick }: AnimatedShowcaseProps) {
   const [activeCategory, setActiveCategory] = useState('all')
   
   const showcaseItems: ShowcaseItem[] = [
@@ -20,7 +25,8 @@ export default function AnimatedShowcase() {
       title: 'Embedded Systems Projects',
       description: 'IoT devices, robotics, and automation solutions',
       category: 'electronics',
-      image: 'https://images.unsplash.com/photo-1505228395891-9a51e7814e02?auto=format&fit=crop&w=500'
+      image: 'https://images.unsplash.com/photo-1505228395891-9a51e7814e02?auto=format&fit=crop&w=500',
+      onClick: onEmbeddedClick
     },
     {
       id: 2,
@@ -97,7 +103,8 @@ export default function AnimatedShowcase() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             whileHover={{ y: -10 }}
-            className="bg-white dark:bg-gray-700 rounded-2xl overflow-hidden shadow-lg"
+            onClick={item.onClick}
+            className={`bg-white dark:bg-gray-700 rounded-2xl overflow-hidden shadow-lg ${item.onClick ? 'cursor-pointer' : ''}`}
           >
             <div className="h-48 bg-gray-300 dark:bg-gray-600 relative">
               <img 

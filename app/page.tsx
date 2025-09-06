@@ -19,6 +19,7 @@ export default function Home() {
   const [showMentorshipModal, setShowMentorshipModal] = useState(false)
   const [showMicrocontrollersModal, setShowMicrocontrollersModal] = useState(false)
   const [showMakanikaModal, setShowMakanikaModal] = useState(false)
+  const [showEmbeddedModal, setShowEmbeddedModal] = useState(false)
 
   useEffect(() => {
     setIsMounted(true)
@@ -214,7 +215,7 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-dark-slate dark:text-off-white">
             What We Do
           </h2>
-          <AnimatedShowcase />
+           <AnimatedShowcase onEmbeddedClick={() => setShowEmbeddedModal(true)} />
         </div>
       </section>
 
@@ -942,6 +943,138 @@ export default function Home() {
                     Join MAKANIKA Waitlist
                   </button>
                 </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Embedded Systems Projects Modal */}
+      {showEmbeddedModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white dark:bg-gray-800 rounded-lg max-w-6xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="text-3xl font-bold text-dark-slate dark:text-off-white">Embedded Systems Projects</h3>
+                <button
+                  onClick={() => setShowEmbeddedModal(false)}
+                  className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </button>
+              </div>
+
+              <div className="mb-6">
+                <p className="text-lg mb-4 text-gray-700 dark:text-gray-300">
+                  Our comprehensive embedded systems solutions combine cutting-edge hardware, expert mentorship, and professional PCB design services to bring your IoT, robotics, and automation projects to life.
+                </p>
+              </div>
+
+              {/* Microcontrollers Section */}
+              <div className="mb-8">
+                <h4 className="text-2xl font-semibold mb-4 text-dark-slate dark:text-off-white">Microcontrollers & Development Boards</h4>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                  <img src="/images/IMAGE 2025-09-06 16:47:00.jpg" alt="Arduino boards" className="w-full h-32 object-cover rounded-lg" />
+                  <img src="/images/IMAGE 2025-09-06 16:47:02.jpg" alt="ESP32 modules" className="w-full h-32 object-cover rounded-lg" />
+                  <img src="/images/IMAGE 2025-09-06 16:47:06.jpg" alt="Raspberry Pi" className="w-full h-32 object-cover rounded-lg" />
+                  <img src="/images/IMAGE 2025-09-06 16:47:09.jpg" alt="STM32 boards" className="w-full h-32 object-cover rounded-lg" />
+                </div>
+                <p className="text-gray-700 dark:text-gray-300 mb-4">
+                  From beginner-friendly Arduino boards to advanced STM32 and ESP32 modules, we provide the perfect microcontroller for your embedded systems and IoT projects.
+                </p>
+                <ul className="list-disc list-inside text-gray-700 dark:text-gray-300">
+                  <li>Arduino, ESP32, Raspberry Pi, and STM32 boards</li>
+                  <li>Complete development kits with sensors and modules</li>
+                  <li>IoT projects, robotics, and home automation</li>
+                </ul>
+              </div>
+
+              {/* Mentorship Section */}
+              <div className="mb-8">
+                <h4 className="text-2xl font-semibold mb-4 text-dark-slate dark:text-off-white">Expert Mentorship Program</h4>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                  <img src="/images/IMAGE 2025-09-06 16:33:57.jpg" alt="Mentorship session 1" className="w-full h-32 object-cover rounded-lg" />
+                  <img src="/images/IMAGE 2025-09-06 16:34:00.jpg" alt="Mentorship session 2" className="w-full h-32 object-cover rounded-lg" />
+                  <img src="/images/IMAGE 2025-09-06 16:34:02.jpg" alt="Mentorship session 3" className="w-full h-32 object-cover rounded-lg" />
+                </div>
+                <p className="text-gray-700 dark:text-gray-300 mb-4">
+                  Our mentorship program provides personalized guidance from industry experts across electronics, software development, and engineering services.
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white mb-2">Available Areas:</h5>
+                    <ul className="list-disc list-inside text-sm text-gray-700 dark:text-gray-300">
+                      <li>Circuit design and microcontrollers</li>
+                      <li>IoT and embedded systems</li>
+                      <li>Software development</li>
+                      <li>Engineering services</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white mb-2">Benefits:</h5>
+                    <ul className="list-disc list-inside text-sm text-gray-700 dark:text-gray-300">
+                      <li>Personalized learning sessions</li>
+                      <li>Industry insights and networking</li>
+                      <li>Practical project work</li>
+                      <li>Career guidance</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* PCB Design Section */}
+              <div className="mb-8">
+                <h4 className="text-2xl font-semibold mb-4 text-dark-slate dark:text-off-white">Professional PCB Design Services</h4>
+                <div className="mb-4">
+                  <img src="/IMAGE 2025-09-05 17:49:00.jpg" alt="PCB Design Services" className="w-full h-64 object-cover rounded-lg" />
+                </div>
+                <p className="text-gray-700 dark:text-gray-300 mb-4">
+                  Professional PCB design services for your electronic projects with industry-standard practices and quality assurance.
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white mb-2">Our Services:</h5>
+                    <ul className="list-disc list-inside text-sm text-gray-700 dark:text-gray-300">
+                      <li>Single-sided, double-sided, and multi-layer PCB design</li>
+                      <li>Schematic capture and PCB layout</li>
+                      <li>Design rule checking (DRC)</li>
+                      <li>Gerber file generation</li>
+                      <li>Bill of Materials (BOM) creation</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white mb-2">Our Process:</h5>
+                    <ul className="list-disc list-inside text-sm text-gray-700 dark:text-gray-300">
+                      <li>Consultation and requirements gathering</li>
+                      <li>Schematic design and PCB layout</li>
+                      <li>Review, testing, and final delivery</li>
+                      <li>Design optimization for cost and performance</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div className="text-center">
+                <p className="text-lg mb-4 text-gray-700 dark:text-gray-300">
+                  Ready to start your embedded systems project? Let's combine our expertise to bring your ideas to life.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <button
+                    onClick={() => setShowEmbeddedModal(false)}
+                    className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-full transition duration-300"
+                  >
+                    Close
+                  </button>
+                  <Link
+                    href="/contact"
+                    onClick={() => setShowEmbeddedModal(false)}
+                    className="bg-uganda-red hover:bg-uganda-red/90 text-white font-bold py-3 px-6 rounded-full transition duration-300"
+                  >
+                    Start Your Project
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
