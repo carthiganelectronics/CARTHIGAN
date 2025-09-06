@@ -17,6 +17,7 @@ export default function Home() {
   const [showEdenPasteModal, setShowEdenPasteModal] = useState(false)
   const [showPcbDesignModal, setShowPcbDesignModal] = useState(false)
   const [showMentorshipModal, setShowMentorshipModal] = useState(false)
+  const [showMicrocontrollersModal, setShowMicrocontrollersModal] = useState(false)
 
   useEffect(() => {
     setIsMounted(true)
@@ -218,6 +219,7 @@ export default function Home() {
              onEdenPasteClick={() => setShowEdenPasteModal(true)}
              onPcbDesignClick={() => setShowPcbDesignModal(true)}
              onMentorshipClick={() => setShowMentorshipModal(true)}
+             onMicrocontrollersClick={() => setShowMicrocontrollersModal(true)}
            />
         </div>
       </section>
@@ -598,6 +600,173 @@ export default function Home() {
                     className="bg-uganda-red hover:bg-uganda-red/90 text-white font-bold py-3 px-6 rounded-full transition duration-300"
                   >
                     Start Mentorship
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Microcontrollers Modal */}
+      {showMicrocontrollersModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white dark:bg-gray-800 rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="text-3xl font-bold text-dark-slate dark:text-off-white">Microcontrollers & Development Boards</h3>
+                <button
+                  onClick={() => setShowMicrocontrollersModal(false)}
+                  className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </button>
+              </div>
+
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                <img
+                  src="/images/IMAGE 2025-09-06 16:47:00.jpg"
+                  alt="Arduino boards"
+                  className="w-full h-32 object-cover rounded-lg"
+                />
+                <img
+                  src="/images/IMAGE 2025-09-06 16:47:02.jpg"
+                  alt="ESP32 modules"
+                  className="w-full h-32 object-cover rounded-lg"
+                />
+                <img
+                  src="/images/IMAGE 2025-09-06 16:47:06.jpg"
+                  alt="Raspberry Pi"
+                  className="w-full h-32 object-cover rounded-lg"
+                />
+                <img
+                  src="/images/IMAGE 2025-09-06 16:47:09.jpg"
+                  alt="STM32 boards"
+                  className="w-full h-32 object-cover rounded-lg"
+                />
+                <img
+                  src="/images/IMAGE 2025-09-06 16:47:13.jpg"
+                  alt="Development kits"
+                  className="w-full h-32 object-cover rounded-lg"
+                />
+                <img
+                  src="/images/IMAGE 2025-09-06 16:47:17.jpg"
+                  alt="IoT modules"
+                  className="w-full h-32 object-cover rounded-lg"
+                />
+                <img
+                  src="/images/IMAGE 2025-09-06 16:47:19.jpg"
+                  alt="Sensor integration"
+                  className="w-full h-32 object-cover rounded-lg"
+                />
+                <img
+                  src="/images/IMAGE 2025-09-06 16:47:23.jpg"
+                  alt="Prototyping setup"
+                  className="w-full h-32 object-cover rounded-lg"
+                />
+              </div>
+
+              <div className="mb-6">
+                <h4 className="text-2xl font-semibold mb-4 text-dark-slate dark:text-off-white">Powerful Microcontrollers for Every Project</h4>
+                <p className="text-lg mb-4 text-gray-700 dark:text-gray-300">
+                  From beginner-friendly Arduino boards to advanced STM32 and ESP32 modules, we provide the perfect microcontroller for your embedded systems and IoT projects.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
+                <div>
+                  <h4 className="text-xl font-semibold mb-4 text-dark-slate dark:text-off-white">Popular Boards We Carry</h4>
+                  <ul className="space-y-3 text-gray-700 dark:text-gray-300">
+                    <li className="flex items-start">
+                      <span className="text-uganda-red mr-2">•</span>
+                      <span><strong>Arduino:</strong> Uno, Mega, Nano, Leonardo - perfect for beginners</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-uganda-red mr-2">•</span>
+                      <span><strong>ESP32:</strong> WiFi/Bluetooth enabled for IoT applications</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-uganda-red mr-2">•</span>
+                      <span><strong>Raspberry Pi:</strong> Pico, Zero, 4 - full Linux computers in miniature</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-uganda-red mr-2">•</span>
+                      <span><strong>STM32:</strong> High-performance ARM Cortex-M microcontrollers</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-uganda-red mr-2">•</span>
+                      <span><strong>Teensy:</strong> Compact and powerful for advanced projects</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-uganda-red mr-2">•</span>
+                      <span><strong>Development Kits:</strong> Complete starter kits with sensors and modules</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="text-xl font-semibold mb-4 text-dark-slate dark:text-off-white">Perfect For</h4>
+                  <div className="space-y-4">
+                    <div className="border-l-4 border-uganda-red pl-4">
+                      <h5 className="font-semibold text-dark-slate dark:text-off-white">IoT Projects</h5>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">Connected devices with WiFi, Bluetooth, and cloud integration</p>
+                    </div>
+                    <div className="border-l-4 border-uganda-yellow pl-4">
+                      <h5 className="font-semibold text-dark-slate dark:text-off-white">Robotics</h5>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">Motor control, sensors, and autonomous systems</p>
+                    </div>
+                    <div className="border-l-4 border-green-500 pl-4">
+                      <h5 className="font-semibold text-dark-slate dark:text-off-white">Home Automation</h5>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">Smart home devices and environmental monitoring</p>
+                    </div>
+                    <div className="border-l-4 border-blue-500 pl-4">
+                      <h5 className="font-semibold text-dark-slate dark:text-off-white">Education</h5>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">Learning embedded systems and programming</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-6 mb-6">
+                <h4 className="text-xl font-semibold mb-3 text-dark-slate dark:text-off-white">Why Choose Our Microcontrollers?</h4>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="text-center">
+                    <div className="text-2xl mb-2">🔧</div>
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white">Quality Assured</h5>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Genuine boards from trusted manufacturers</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl mb-2">📚</div>
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white">Documentation</h5>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Complete guides and tutorials included</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl mb-2">🚀</div>
+                    <h5 className="font-semibold text-dark-slate dark:text-off-white">Ready to Use</h5>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Pre-tested and ready for your projects</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="text-center">
+                <p className="text-lg mb-4 text-gray-700 dark:text-gray-300">
+                  Ready to start your next embedded systems project? Browse our microcontroller collection.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <button
+                    onClick={() => setShowMicrocontrollersModal(false)}
+                    className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-full transition duration-300"
+                  >
+                    Close
+                  </button>
+                  <Link
+                    href="/products"
+                    onClick={() => setShowMicrocontrollersModal(false)}
+                    className="bg-uganda-red hover:bg-uganda-red/90 text-white font-bold py-3 px-6 rounded-full transition duration-300"
+                  >
+                    View All Products
                   </Link>
                 </div>
               </div>

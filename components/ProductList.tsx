@@ -17,9 +17,10 @@ interface ProductListProps {
   onEdenPasteClick?: () => void
   onPcbDesignClick?: () => void
   onMentorshipClick?: () => void
+  onMicrocontrollersClick?: () => void
 }
 
-export default function ProductList({ onEdenPasteClick, onPcbDesignClick, onMentorshipClick }: ProductListProps) {
+export default function ProductList({ onEdenPasteClick, onPcbDesignClick, onMentorshipClick, onMicrocontrollersClick }: ProductListProps) {
   const [products, setProducts] = useState<Product[]>([])
   const [loading, setLoading] = useState(true)
 
@@ -27,12 +28,12 @@ export default function ProductList({ onEdenPasteClick, onPcbDesignClick, onMent
     // Featured products and services
     const featuredProducts: Product[] = [
       {
-        id: 4,
-        name: 'Mentorships on All Services',
-        description: 'Expert guidance across electronics, software, creative arts, and all our services',
-        price: 30000,
-        category: 'Mentorship',
-        image: '/images/IMAGE 2025-09-06 16:33:57.jpg'
+        id: 1,
+        name: 'Microcontrollers',
+        description: 'Arduino, ESP32, Raspberry Pi, and STM32 boards for IoT and embedded projects',
+        price: 0,
+        category: 'Electrical Components',
+        image: '/images/IMAGE 2025-09-06 16:47:00.jpg'
       },
       {
         id: 2,
@@ -86,12 +87,13 @@ export default function ProductList({ onEdenPasteClick, onPcbDesignClick, onMent
             product.id === 2 && onEdenPasteClick ? onEdenPasteClick :
             product.id === 3 && onPcbDesignClick ? onPcbDesignClick :
             product.id === 4 && onMentorshipClick ? onMentorshipClick :
+            product.id === 1 && onMicrocontrollersClick ? onMicrocontrollersClick :
             undefined
           }
         >
           <CardBody className={`bg-white dark:bg-gray-800 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border ${
             product.id === 2 ? 'cursor-pointer border-uganda-red/20' :
-            product.id === 1 ? 'border-blue-500/20' :
+            product.id === 1 ? 'cursor-pointer border-blue-500/20' :
             product.id === 3 ? 'cursor-pointer border-green-500/20' :
             product.id === 4 ? 'cursor-pointer border-amber-600/20' :
             'border-black/[0.1]'
