@@ -3,10 +3,53 @@
 import { FocusCards } from '@/components/ui/focus-cards'
 import { AuroraBackground } from '@/components/ui/aurora-background'
 import { motion } from 'framer-motion'
+import { useState, useEffect } from 'react'
+import { supabase } from '@/lib/supabaseClient'
+
+interface Photo {
+  id: string
+  title: string | null
+  description: string | null
+  image_url: string
+  category: string | null
+  uploaded_by: string | null
+  created_at: string
+}
 
 export default function PhotosPage() {
-  // Photos section data
-  const photosData = [
+  const [photos, setPhotos] = useState<Photo[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    fetchPhotos()
+  }, [])
+
+  const fetchPhotos = async () => {
+    try {
+      setLoading(true)
+      const { data, error } = await supabase
+        .from('photos')
+        .select('*')
+        .order('created_at', { ascending: false })
+
+      if (error) {
+        console.error('Error fetching photos:', error)
+        setError('Failed to load photos')
+        return
+      }
+
+      setPhotos(data || [])
+    } catch (err) {
+      console.error('Error:', err)
+      setError('Failed to load photos')
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  // Fallback photos for when database is empty or loading
+  const fallbackPhotos = [
     {
       title: "Team Photos",
       src: "/images/IMAGE 2025-09-06 14:33:20.jpg",
@@ -32,6 +75,14 @@ export default function PhotosPage() {
       src: "/images/IMAGE 2025-09-06 14:33:38.jpg",
     },
   ]
+
+  // Convert database photos to FocusCards format
+  const photosData = photos.length > 0
+    ? photos.map(photo => ({
+        title: photo.title || photo.category || 'Carthigan Photo',
+        src: photo.image_url,
+      }))
+    : fallbackPhotos
 
   return (
     <main className="min-h-screen bg-off-white dark:bg-dark-slate">
@@ -68,22 +119,52 @@ export default function PhotosPage() {
             </p>
           </div>
 
-          <FocusCards
-            cards={photosData}
-            onCardClick={(index) => {
-              // Photos can be expanded or lead to galleries in the future
-              console.log('Photo clicked:', index);
-            }}
-          />
+          {loading ? (
+            <div className="flex justify-center items-center py-20">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600"></div>
+              <span className="ml-4 text-lg text-gray-600 dark:text-gray-400">Loading photos...</span>
+            </div>
+          ) : error ? (
+            <div className="text-center py-20">
+              <p className="text-lg text-red-600 dark:text-red-400 mb-4">{error}</p>
+              <button
+                onClick={fetchPhotos}
+                className="px-6 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
+              >
+                Try Again
+              </button>
+            </div>
+          ) : photos.length > 0 ? (
+            <FocusCards
+              cards={photosData}
+              onCardClick={(index) => {
+                const photo = photos[index]
+                if (photo) {
+                  console.log('Photo clicked:', photo.title || photo.category, 'Uploaded by:', photo.uploaded_by)
+                }
+              }}
+            />
+          ) : (
+            <div className="text-center py-20">
+              <p className="text-lg text-gray-600 dark:text-gray-400 mb-4">
+                📸 No photos uploaded yet
+              </p>
+              <p className="text-sm text-gray-500 dark:text-gray-500">
+                Photos uploaded through the admin app will appear here
+              </p>
+            </div>
+          )}
 
-          <div className="text-center mt-12">
-            <p className="text-lg text-gray-600 dark:text-gray-400 mb-4">
-              📸 More photos coming soon with Supabase backend integration
-            </p>
-            <p className="text-sm text-gray-500 dark:text-gray-500">
-              Stay tuned for our expanding photo gallery featuring workshops, events, and project showcases
-            </p>
-          </div>
+          {photos.length > 0 && (
+            <div className="text-center mt-12">
+              <p className="text-lg text-gray-600 dark:text-gray-400 mb-4">
+                📸 {photos.length} photo{photos.length !== 1 ? 's' : ''} uploaded
+              </p>
+              <p className="text-sm text-gray-500 dark:text-gray-500">
+                Photos are uploaded through the Carthigan Admin app and displayed here in real-time
+              </p>
+            </div>
+          )}
         </div>
       </section>
     </main>
