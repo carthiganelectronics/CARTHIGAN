@@ -96,6 +96,10 @@ create policy "Public read access to products" on products
 create policy "Public insert access to mentorship inquiries" on mentorship_inquiries
   for insert with check (true);
 
+-- Allow authenticated users to read mentorship inquiries
+create policy "Authenticated users can read mentorship inquiries" on mentorship_inquiries
+  for select using (auth.role() = 'authenticated');
+
 -- Allow public read access to published blog posts
 create policy "Public read access to published blog posts" on blog_posts
   for select using (published = true);
@@ -112,6 +116,10 @@ create policy "Public read access to approved comments" on comments
 create policy "Public insert access to waitlist entries" on waitlist_entries
   for insert with check (true);
 
+-- Allow authenticated users to read waitlist entries
+create policy "Authenticated users can read waitlist entries" on waitlist_entries
+  for select using (auth.role() = 'authenticated');
+
 -- Allow public insert access to orders
 create policy "Public insert access to orders" on orders
   for insert with check (true);
@@ -127,4 +135,6 @@ create index idx_blog_posts_published on blog_posts(published);
 create index idx_comments_post_id on comments(post_id);
 create index idx_waitlist_entries_app_name on waitlist_entries(app_name);
 create index idx_orders_status on orders(status);
-create index idx_photos_category on photos(category);
+create index idx_photos_category on photos(category);-- Allow authenticated users to insert photos
+create policy "Authenticated users can insert photos" on photos
+  for insert with check (auth.role() = 'authenticated');

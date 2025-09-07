@@ -160,9 +160,7 @@ export default function PhotosPage() {
               <p className="text-lg text-gray-600 dark:text-gray-400 mb-4">
                 📸 {photos.length} photo{photos.length !== 1 ? 's' : ''} uploaded
               </p>
-              <p className="text-sm text-gray-500 dark:text-gray-500">
-                Photos are uploaded through the Carthigan Admin app and displayed here in real-time
-              </p>
+
             </div>
           )}
         </div>
