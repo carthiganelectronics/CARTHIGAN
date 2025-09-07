@@ -123,3 +123,5 @@ A full-stack e-commerce platform for electronics, embedded systems, software tec
 ## License
 
 This project is proprietary to Carthigan and not available for public use without explicit permission.
+
+<!-- Temporary comment to trigger redeploy -->
