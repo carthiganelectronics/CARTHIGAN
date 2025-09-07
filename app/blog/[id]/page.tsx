@@ -1,62 +1,54 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { supabase } from '@/lib/supabaseClient'
 
 interface BlogPost {
   id: string
   title: string
+  excerpt: string | null
   content: string
   author: string
   category: string
   image_urls: string[]
+  published: boolean
   created_at: string
 }
 
 export default function BlogPostPage({ params }: any) {
-  // In a real app, this would fetch from Supabase based on the ID
-  const blogPost: BlogPost = {
-    id: params.id,
-    title: 'The Future of Semiconductor Manufacturing in Uganda',
-    content: `
-      <p>Uganda is on the cusp of a technological revolution. As we look toward the future, the potential for local semiconductor manufacturing presents an unprecedented opportunity for economic growth and technological independence.</p>
+  const [blogPost, setBlogPost] = useState<BlogPost | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
-      <h2 class="text-2xl font-bold my-6 text-dark-slate dark:text-off-white">Current Landscape</h2>
+  useEffect(() => {
+    fetchBlogPost()
+  }, [params.id])
 
-      <p>Currently, Uganda imports the vast majority of its electronic components and devices. This dependency not only strains our economy but also limits our ability to innovate and customize solutions for local challenges. However, recent developments in education and infrastructure are creating a fertile ground for change.</p>
+  const fetchBlogPost = async () => {
+    try {
+      setLoading(true)
+      const { data, error } = await supabase
+        .from('blog_posts')
+        .select('*')
+        .eq('id', params.id)
+        .eq('published', true)
+        .single()
 
-      <p>Our partnership with local universities has already produced promising results in research and development. Students and faculty are working on projects that could form the foundation for domestic semiconductor production.</p>
+      if (error) {
+        console.error('Error fetching blog post:', error)
+        setError('Blog post not found')
+        return
+      }
 
-      <h2 class="text-2xl font-bold my-6 text-dark-slate dark:text-off-white">The Road Ahead</h2>
-
-      <p>Our roadmap for semiconductor manufacturing includes several key milestones:</p>
-
-      <ul class="list-disc pl-8 my-4 space-y-2">
-        <li>Establishment of a semiconductor education program by 2026</li>
-        <li>Development of our first prototype chips by 2027</li>
-        <li>Partnership with international manufacturers for technology transfer by 2028</li>
-        <li>Construction of our first fabrication facility by 2030</li>
-      </ul>
-
-      <p>This ambitious plan requires significant investment, but the potential benefits are enormous. Local chip production would create thousands of jobs, reduce import costs, and position Uganda as a leader in African technology development.</p>
-
-      <h2 class="text-2xl font-bold my-6 text-dark-slate dark:text-off-white">How You Can Help</h2>
-
-      <p>We invite you to join us in this journey. Whether you're a student, entrepreneur, or investor, there are opportunities to contribute:</p>
-
-      <ul class="list-disc pl-8 my-4 space-y-2">
-        <li>Enroll in our semiconductor courses and workshops</li>
-        <li>Participate in our mentorship programs</li>
-        <li>Support our research initiatives through donations or partnerships</li>
-      </ul>
-
-      <p>Together, we can build a future where Uganda is not just a consumer of technology, but a creator and innovator.</p>
-    `,
-    author: 'Dr. Samuel Mubarak',
-    category: 'Semiconductors',
-    image_urls: ['https://images.unsplash.com/photo-1505228395891-9a51e7814e02?auto=format&fit=crop&w=500'],
-    created_at: '2025-08-15T00:00:00Z'
+      setBlogPost(data)
+    } catch (err) {
+      console.error('Error:', err)
+      setError('Failed to load blog post')
+    } finally {
+      setLoading(false)
+    }
   }
 
   const [comment, setComment] = useState('')
@@ -67,6 +59,31 @@ export default function BlogPostPage({ params }: any) {
     console.log('Comment submitted:', comment)
     alert('Thank you for your comment!')
     setComment('')
+  }
+
+  if (loading) {
+    return (
+      <div className="container mx-auto px-4 py-16">
+        <div className="text-center">Loading...</div>
+      </div>
+    )
+  }
+
+  if (error || !blogPost) {
+    return (
+      <div className="container mx-auto px-4 py-16">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold mb-4">Blog Post Not Found</h1>
+          <p className="text-gray-600 dark:text-gray-300 mb-8">{error}</p>
+          <Link
+            href="/blog"
+            className="bg-uganda-red hover:bg-uganda-red/90 text-white font-bold py-2 px-6 rounded-full transition duration-300"
+          >
+            Back to Blog
+          </Link>
+        </div>
+      </div>
+    )
   }
 
   return (
