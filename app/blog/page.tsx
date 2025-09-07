@@ -44,7 +44,12 @@ export default function BlogPage() {
         return
       }
 
-      setBlogPosts(data || [])
+      const parsedData = (data || []).map((post: any) => ({
+        ...post,
+        image_urls: typeof post.image_urls === 'string' ? JSON.parse(post.image_urls) : post.image_urls || [],
+        image_descriptions: typeof post.image_descriptions === 'string' ? JSON.parse(post.image_descriptions) : post.image_descriptions || [],
+      }))
+      setBlogPosts(parsedData)
     } catch (err) {
       console.error('Error:', err)
       setError('Failed to load blog posts')
