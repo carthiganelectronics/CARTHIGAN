@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { supabase } from '@/lib/supabaseClient'
 
 interface Mentor {
   id: number
@@ -60,47 +61,28 @@ export default function MentorshipPage() {
     setIsSubmitting(true)
     setSubmitError('')
     setSubmitSuccess(false)
-    
+
     try {
-      // Submit to Google Apps Script Web App
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbwP9UU0uR-8OLvUfL9BPs_YeEFEtebUjgXoKXCAxk-TKgH2Tlo-IwrU9Xvg2SfWB9eWCw/exec'
-      
-      // Log the data being sent for debugging
-      console.log('Sending data:', {
-        'Name': formData.name,
-        'Email': formData.email,
-        'Phone': formData.phone,
-        'Interest': formData.interest,
-        'Message': formData.message,
-        'Timestamp': new Date().toISOString()
+      const { error } = await supabase.from('mentorship_inquiries').insert({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        interest: formData.interest,
+        message: formData.message
       })
-      
-      const response = await fetch(scriptURL, {
-        method: 'POST',
-        mode: 'no-cors', // This is needed for Google Apps Script
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: new URLSearchParams({
-          'Name': formData.name,
-          'Email': formData.email,
-          'Phone': formData.phone,
-          'Interest': formData.interest,
-          'Message': formData.message,
-          'Timestamp': new Date().toISOString()
+
+      if (error) {
+        setSubmitError('Failed to submit: ' + error.message)
+      } else {
+        setSubmitSuccess(true)
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          interest: '',
+          message: ''
         })
-      })
-      
-      // With no-cors mode, we can't check the response, but we'll assume success
-      console.log('Form submission sent to Google Apps Script')
-      setSubmitSuccess(true)
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        interest: '',
-        message: ''
-      })
+      }
     } catch (error) {
       console.error('Error submitting form:', error)
       setSubmitError('There was an error submitting your interest. Please try again.')

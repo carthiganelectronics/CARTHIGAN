@@ -27,6 +27,8 @@ export default function ProductsPage() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null)
+  const [waitlistProduct, setWaitlistProduct] = useState<Product | null>(null)
+  const [waitlistForm, setWaitlistForm] = useState({ name: '', email: '', phone: '' })
 
   // Load cart from localStorage on mount
   useEffect(() => {
@@ -123,9 +125,34 @@ export default function ProductsPage() {
       // If new item, add to cart with quantity 1
       setCartItems(prev => [...prev, { ...product, quantity: 1 }])
     }
-    
+
     // Show cart after adding item
     setShowCart(true)
+  }
+
+  const joinWaitlist = (product: Product) => {
+    setWaitlistProduct(product)
+  }
+
+  const handleWaitlistSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    try {
+      const { error } = await supabase.from('waitlist_entries').insert({
+        name: waitlistForm.name,
+        email: waitlistForm.email,
+        phone: waitlistForm.phone,
+        product_id: waitlistProduct?.id
+      })
+      if (error) {
+        alert('Failed to join waitlist: ' + error.message)
+      } else {
+        alert('Joined waitlist successfully!')
+        setWaitlistProduct(null)
+        setWaitlistForm({ name: '', email: '', phone: '' })
+      }
+    } catch (err) {
+      alert('Error joining waitlist')
+    }
   }
 
   return (
@@ -221,12 +248,16 @@ export default function ProductsPage() {
                   <div className="text-2xl font-bold text-uganda-red">
                     UGX {product.price.toLocaleString()}
                   </div>
-                  <button
-                    onClick={() => addToCart(product)}
-                    className="bg-uganda-yellow hover:bg-uganda-yellow/90 text-dark-slate font-bold py-2 px-4 rounded-full transition duration-300"
-                  >
-                    Add to Cart
-                  </button>
+                   <button
+                     onClick={() => product.in_stock ? addToCart(product) : joinWaitlist(product)}
+                     className={`font-bold py-2 px-4 rounded-full transition duration-300 ${
+                       product.in_stock
+                         ? 'bg-uganda-yellow hover:bg-uganda-yellow/90 text-dark-slate'
+                         : 'bg-gray-500 hover:bg-gray-600 text-white'
+                     }`}
+                   >
+                     {product.in_stock ? 'Add to Cart' : 'Join Waitlist'}
+                   </button>
                 </div>
               </div>
             </motion.div>
@@ -320,6 +351,94 @@ export default function ProductsPage() {
                   </button>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Waitlist Modal */}
+      {waitlistProduct && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white dark:bg-gray-800 rounded-2xl max-w-md w-full">
+            <div className="p-6">
+              <div className="flex justify-between items-start mb-4">
+                <h2 className="text-2xl font-bold text-dark-slate dark:text-off-white">Join Waitlist</h2>
+                <button
+                  onClick={() => setWaitlistProduct(null)}
+                  className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </button>
+              </div>
+
+              <div className="mb-4">
+                <p className="text-gray-600 dark:text-gray-300">
+                  Get notified when <strong>{waitlistProduct.name}</strong> becomes available.
+                </p>
+              </div>
+
+              <form onSubmit={handleWaitlistSubmit}>
+                <div className="space-y-4">
+                  <div>
+                    <label htmlFor="waitlist-name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      id="waitlist-name"
+                      required
+                      className="w-full px-4 py-2 border border-gray-300 rounded-full focus:ring-2 focus:ring-uganda-yellow focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                      value={waitlistForm.name}
+                      onChange={(e) => setWaitlistForm(prev => ({ ...prev, name: e.target.value }))}
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="waitlist-email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      id="waitlist-email"
+                      required
+                      className="w-full px-4 py-2 border border-gray-300 rounded-full focus:ring-2 focus:ring-uganda-yellow focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                      value={waitlistForm.email}
+                      onChange={(e) => setWaitlistForm(prev => ({ ...prev, email: e.target.value }))}
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="waitlist-phone" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      Phone (Optional)
+                    </label>
+                    <input
+                      type="tel"
+                      id="waitlist-phone"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-full focus:ring-2 focus:ring-uganda-yellow focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                      value={waitlistForm.phone}
+                      onChange={(e) => setWaitlistForm(prev => ({ ...prev, phone: e.target.value }))}
+                    />
+                  </div>
+                </div>
+
+                <div className="mt-6 flex space-x-4">
+                  <button
+                    type="button"
+                    onClick={() => setWaitlistProduct(null)}
+                    className="flex-1 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-full transition duration-300"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    className="flex-1 bg-uganda-red hover:bg-uganda-red/90 text-white font-bold py-2 px-4 rounded-full transition duration-300"
+                  >
+                    Join Waitlist
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </div>

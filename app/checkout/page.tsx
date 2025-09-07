@@ -1,7 +1,20 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { supabase } from '@/lib/supabaseClient'
+
+interface Product {
+  id: string
+  name: string
+  description: string | null
+  category: string
+  image_url: string | null
+  price: number
+  in_stock: boolean
+  created_at: string
+  quantity?: number
+}
 
 export default function CheckoutPage() {
   const [formData, setFormData] = useState({
@@ -16,24 +29,20 @@ export default function CheckoutPage() {
     cvv: ''
   })
 
-  const cartItems = [
-    {
-      id: 1,
-      name: 'Arduino Uno R3',
-      price: 15000,
-      quantity: 2,
-      image: 'https://images.unsplash.com/photo-1505228395891-9a51e7814e02?auto=format&fit=crop&w=500'
-    },
-    {
-      id: 2,
-      name: 'ESP32 Development Board',
-      price: 25000,
-      quantity: 1,
-      image: 'https://images.unsplash.com/photo-1505228395891-9a51e7814e02?auto=format&fit=crop&w=500'
-    }
-  ]
+  const [cartItems, setCartItems] = useState([])
 
-  const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0)
+  useEffect(() => {
+    const savedCart = localStorage.getItem('cart')
+    if (savedCart) {
+      try {
+        setCartItems(JSON.parse(savedCart))
+      } catch (e) {
+        console.error('Error parsing cart', e)
+      }
+    }
+  }, [])
+
+  const subtotal = cartItems.reduce((sum: number, item: Product) => sum + (item.price * (item.quantity || 0)), 0)
   const shipping = 5000
   const total = subtotal + shipping
 
@@ -45,11 +54,30 @@ export default function CheckoutPage() {
     }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // In a real app, this would process the payment
-    console.log('Order submitted:', formData)
-    alert('Order placed successfully! You will receive a confirmation email shortly.')
+    try {
+      const orderData = {
+        customer_name: formData.fullName,
+        email: formData.email,
+        phone: formData.phone,
+        address: formData.address,
+        city: formData.city,
+        products: JSON.stringify(cartItems),
+        total: total,
+        status: 'pending'
+      }
+      const { error } = await supabase.from('orders').insert(orderData)
+      if (error) {
+        alert('Failed to place order: ' + error.message)
+      } else {
+        alert('Order placed successfully!')
+        localStorage.removeItem('cart')
+        window.location.href = '/'
+      }
+    } catch (err) {
+      alert('Error placing order')
+    }
   }
 
   return (
@@ -72,22 +100,22 @@ export default function CheckoutPage() {
             <h2 className="text-2xl font-bold mb-6 text-dark-slate dark:text-off-white">Order Summary</h2>
             
             <div className="space-y-4 mb-6">
-              {cartItems.map((item) => (
+              {cartItems.map((item: Product, index: number) => (
                 <div key={item.id} className="flex items-center">
                   <div className="w-16 h-16 bg-gray-300 dark:bg-gray-700 rounded-lg mr-4">
-                    <img 
-                      src={item.image} 
-                      alt={item.name} 
-                      className="w-full h-full object-cover rounded-lg"
-                    />
+                     <img
+                       src={item.image_url || 'https://images.unsplash.com/photo-1505228395891-9a51e7814e02?auto=format&fit=crop&w=500'}
+                       alt={item.name}
+                       className="w-full h-full object-cover rounded-lg"
+                     />
                   </div>
                   <div className="flex-grow">
                     <h3 className="font-medium text-dark-slate dark:text-off-white">{item.name}</h3>
                     <p className="text-gray-600 dark:text-gray-300">Qty: {item.quantity}</p>
                   </div>
-                  <div className="font-bold text-dark-slate dark:text-off-white">
-                    UGX {(item.price * item.quantity).toLocaleString()}
-                  </div>
+                   <div className="font-bold text-dark-slate dark:text-off-white">
+                     UGX {(item.price * (item.quantity || 0)).toLocaleString()}
+                   </div>
                 </div>
               ))}
             </div>
