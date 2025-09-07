@@ -40,3 +40,16 @@ CREATE POLICY "Authenticated users can read mentorship inquiries" ON mentorship_
 
 CREATE POLICY "Authenticated users can read waitlist entries" ON waitlist_entries
   FOR SELECT USING (auth.role() = 'authenticated');
+
+-- Blog posts policies
+CREATE POLICY "Authenticated users can insert blog posts" ON blog_posts
+  FOR INSERT WITH CHECK (auth.role() = 'authenticated');
+
+CREATE POLICY "Authenticated users can update blog posts" ON blog_posts
+  FOR UPDATE USING (auth.role() = 'authenticated');
+
+CREATE POLICY "Authenticated users can delete blog posts" ON blog_posts
+  FOR DELETE USING (auth.role() = 'authenticated');
+
+CREATE POLICY "Authenticated users can read blog posts" ON blog_posts
+  FOR SELECT USING (auth.role() = 'authenticated');
