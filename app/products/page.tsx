@@ -53,11 +53,14 @@ export default function ProductsPage() {
   const fetchProducts = async () => {
     try {
       setLoading(true)
+      console.log('Fetching products from Supabase...')
       const { data, error } = await supabase
         .from('products')
         .select('*')
         .eq('in_stock', true)
         .order('created_at', { ascending: false })
+
+      console.log('Supabase response:', { data, error })
 
       if (error) {
         console.error('Error fetching products:', error)
@@ -65,6 +68,7 @@ export default function ProductsPage() {
         return
       }
 
+      console.log('Products fetched:', data)
       setProducts(data || [])
     } catch (err) {
       console.error('Error:', err)
