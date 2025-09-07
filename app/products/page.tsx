@@ -141,7 +141,8 @@ export default function ProductsPage() {
         name: waitlistForm.name,
         email: waitlistForm.email,
         phone: waitlistForm.phone,
-        product_id: waitlistProduct?.id
+        app_name: waitlistProduct?.name || 'Unknown Product',
+        message: `Interested in ${waitlistProduct?.name || 'this product'}`
       })
       if (error) {
         alert('Failed to join waitlist: ' + error.message)

@@ -57,14 +57,20 @@ export default function CheckoutPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     try {
+      const orderItems = cartItems.map((item: any) => ({
+        product_id: item.id,
+        product_name: item.name,
+        quantity: item.quantity || 0,
+        price: item.price
+      }))
+
       const orderData = {
         customer_name: formData.fullName,
-        email: formData.email,
-        phone: formData.phone,
-        address: formData.address,
-        city: formData.city,
-        products: JSON.stringify(cartItems),
-        total: total,
+        customer_email: formData.email,
+        customer_phone: formData.phone,
+        customer_location: formData.city,
+        items: orderItems,
+        total_amount: total,
         status: 'pending'
       }
       const { error } = await supabase.from('orders').insert(orderData)
