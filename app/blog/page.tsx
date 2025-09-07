@@ -1,95 +1,64 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { supabase } from '@/lib/supabaseClient'
 
 interface BlogPost {
-  id: number
+  id: string
   title: string
-  excerpt: string
-  content?: string
-  date: string
+  excerpt: string | null
+  content: string
   author: string
   category: string
-  image: string
+  image_urls: string[]
+  published: boolean
+  created_at: string
 }
 
 export default function BlogPage() {
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('all')
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
-  // Mock blog posts data
-  const blogPosts: BlogPost[] = [
-    {
-      id: 1,
-      title: 'The Future of Semiconductor Manufacturing in Uganda',
-      excerpt: 'Exploring the potential for local chip production and its impact on our economy',
-      content: 'Full content would go here...',
-      date: '2025-08-15',
-      author: 'Dr. Samuel Mubarak',
-      category: 'Semiconductors',
-      image: 'https://images.unsplash.com/photo-1505228395891-9a51e7814e02?auto=format&fit=crop&w=500'
-    },
-    {
-      id: 2,
-      title: 'Building Embedded Systems with Local Components',
-      excerpt: 'A guide to creating IoT devices using Ugandan-made electronic components',
-      content: 'Full content would go here...',
-      date: '2025-07-22',
-      author: 'Sarah Nakato',
-      category: 'Embedded Systems',
-      image: 'https://images.unsplash.com/photo-1505228395891-9a51e7814e02?auto=format&fit=crop&w=500'
-    },
-    {
-      id: 3,
-      title: 'Software Development Best Practices for Ugandan Startups',
-      excerpt: 'Essential coding standards and development workflows for local tech companies',
-      content: 'Full content would go here...',
-      date: '2025-06-30',
-      author: 'Michael Omondi',
-      category: 'Software',
-      image: 'https://images.unsplash.com/photo-1505228395891-9a51e7814e02?auto=format&fit=crop&w=500'
-    },
-    {
-      id: 4,
-      title: 'Creative Technology: Bridging Art and Code',
-      excerpt: 'How Ugandan artists are using technology to create innovative digital experiences',
-      content: 'Full content would go here...',
-      date: '2025-06-15',
-      author: 'Esther Namutebi',
-      category: 'Creative',
-      image: 'https://images.unsplash.com/photo-1505228395891-9a51e7814e02?auto=format&fit=crop&w=500'
-    },
-    {
-      id: 5,
-      title: 'The Rise of Ugandan Tech Entrepreneurs',
-      excerpt: 'Profiles of successful founders who are building the next generation of African tech companies',
-      content: 'Full content would go here...',
-      date: '2025-05-10',
-      author: 'David Kato',
-      category: 'Entrepreneurship',
-      image: 'https://images.unsplash.com/photo-1505228395891-9a51e7814e02?auto=format&fit=crop&w=500'
-    },
-    {
-      id: 6,
-      title: 'Sustainable Tech Solutions for Rural Communities',
-      excerpt: 'How technology can address challenges in agriculture, healthcare, and education in rural Uganda',
-      content: 'Full content would go here...',
-      date: '2025-04-18',
-      author: 'Grace Nalubowa',
-      category: 'Sustainability',
-      image: 'https://images.unsplash.com/photo-1505228395891-9a51e7814e02?auto=format&fit=crop&w=500'
+  useEffect(() => {
+    fetchBlogPosts()
+  }, [])
+
+  const fetchBlogPosts = async () => {
+    try {
+      setLoading(true)
+      const { data, error } = await supabase
+        .from('blog_posts')
+        .select('*')
+        .eq('published', true)
+        .order('created_at', { ascending: false })
+
+      if (error) {
+        console.error('Error fetching blog posts:', error)
+        setError('Failed to load blog posts')
+        return
+      }
+
+      setBlogPosts(data || [])
+    } catch (err) {
+      console.error('Error:', err)
+      setError('Failed to load blog posts')
+    } finally {
+      setLoading(false)
     }
-  ]
+  }
 
   // Get unique categories
   const categories = ['all'].concat(Array.from(new Set(blogPosts.map(post => post.category))))
 
   // Filter posts
   const filteredPosts = blogPosts.filter(post => {
-    const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                         post.excerpt.toLowerCase().includes(searchTerm.toLowerCase())
+    const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                          (post.excerpt && post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()))
     const matchesCategory = selectedCategory === 'all' || post.category === selectedCategory
     return matchesSearch && matchesCategory
   })
@@ -145,42 +114,42 @@ export default function BlogPage() {
       {/* Blog Posts */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredPosts.map((post, index) => (
-          <motion.div
-            key={post.id}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg"
-          >
-            <div className="h-48 bg-gray-300 dark:bg-gray-700 relative">
-              <img 
-                src={post.image} 
-                alt={post.title} 
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute top-4 right-4 bg-uganda-red text-white text-xs font-bold px-2 py-1 rounded-full">
-                {post.category}
+            <motion.div
+              key={post.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg"
+            >
+              <div className="h-48 bg-gray-300 dark:bg-gray-700 relative">
+                <img
+                  src={post.image_urls.length > 0 ? post.image_urls[0] : 'https://images.unsplash.com/photo-1505228395891-9a51e7814e02?auto=format&fit=crop&w=500'}
+                  alt={post.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute top-4 right-4 bg-uganda-red text-white text-xs font-bold px-2 py-1 rounded-full">
+                  {post.category}
+                </div>
               </div>
-            </div>
-            <div className="p-6">
-              <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3">
-                <span>{post.date}</span>
-                <span className="mx-2">•</span>
-                <span>{post.author}</span>
+              <div className="p-6">
+                <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3">
+                  <span>{new Date(post.created_at).toLocaleDateString()}</span>
+                  <span className="mx-2">•</span>
+                  <span>{post.author}</span>
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-dark-slate dark:text-off-white">{post.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">{post.excerpt || 'No excerpt available'}</p>
+                <Link
+                  href={`/blog/${post.id}`}
+                  className="text-uganda-red font-semibold hover:text-uganda-red/80 flex items-center"
+                >
+                  Read more
+                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                </Link>
               </div>
-              <h3 className="text-xl font-bold mb-3 text-dark-slate dark:text-off-white">{post.title}</h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-4">{post.excerpt}</p>
-              <Link 
-                href={`/blog/${post.id}`}
-                className="text-uganda-red font-semibold hover:text-uganda-red/80 flex items-center"
-              >
-                Read more
-                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
-                </svg>
-              </Link>
-            </div>
-          </motion.div>
+            </motion.div>
         ))}
       </div>
 

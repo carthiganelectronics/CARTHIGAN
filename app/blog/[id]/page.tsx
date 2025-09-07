@@ -5,58 +5,58 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 
 interface BlogPost {
-  id: number
+  id: string
   title: string
   content: string
-  date: string
   author: string
   category: string
-  image: string
+  image_urls: string[]
+  created_at: string
 }
 
 export default function BlogPostPage({ params }: any) {
   // In a real app, this would fetch from Supabase based on the ID
   const blogPost: BlogPost = {
-    id: parseInt(params.id),
+    id: params.id,
     title: 'The Future of Semiconductor Manufacturing in Uganda',
     content: `
       <p>Uganda is on the cusp of a technological revolution. As we look toward the future, the potential for local semiconductor manufacturing presents an unprecedented opportunity for economic growth and technological independence.</p>
-      
+
       <h2 class="text-2xl font-bold my-6 text-dark-slate dark:text-off-white">Current Landscape</h2>
-      
+
       <p>Currently, Uganda imports the vast majority of its electronic components and devices. This dependency not only strains our economy but also limits our ability to innovate and customize solutions for local challenges. However, recent developments in education and infrastructure are creating a fertile ground for change.</p>
-      
+
       <p>Our partnership with local universities has already produced promising results in research and development. Students and faculty are working on projects that could form the foundation for domestic semiconductor production.</p>
-      
+
       <h2 class="text-2xl font-bold my-6 text-dark-slate dark:text-off-white">The Road Ahead</h2>
-      
+
       <p>Our roadmap for semiconductor manufacturing includes several key milestones:</p>
-      
+
       <ul class="list-disc pl-8 my-4 space-y-2">
         <li>Establishment of a semiconductor education program by 2026</li>
         <li>Development of our first prototype chips by 2027</li>
         <li>Partnership with international manufacturers for technology transfer by 2028</li>
         <li>Construction of our first fabrication facility by 2030</li>
       </ul>
-      
+
       <p>This ambitious plan requires significant investment, but the potential benefits are enormous. Local chip production would create thousands of jobs, reduce import costs, and position Uganda as a leader in African technology development.</p>
-      
+
       <h2 class="text-2xl font-bold my-6 text-dark-slate dark:text-off-white">How You Can Help</h2>
-      
+
       <p>We invite you to join us in this journey. Whether you're a student, entrepreneur, or investor, there are opportunities to contribute:</p>
-      
+
       <ul class="list-disc pl-8 my-4 space-y-2">
         <li>Enroll in our semiconductor courses and workshops</li>
         <li>Participate in our mentorship programs</li>
         <li>Support our research initiatives through donations or partnerships</li>
       </ul>
-      
+
       <p>Together, we can build a future where Uganda is not just a consumer of technology, but a creator and innovator.</p>
     `,
-    date: '2025-08-15',
     author: 'Dr. Samuel Mubarak',
     category: 'Semiconductors',
-    image: 'https://images.unsplash.com/photo-1505228395891-9a51e7814e02?auto=format&fit=crop&w=500'
+    image_urls: ['https://images.unsplash.com/photo-1505228395891-9a51e7814e02?auto=format&fit=crop&w=500'],
+    created_at: '2025-08-15T00:00:00Z'
   }
 
   const [comment, setComment] = useState('')
@@ -82,20 +82,22 @@ export default function BlogPostPage({ params }: any) {
       </Link>
 
       <article className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg mb-12">
-        <div className="h-96 bg-gray-300 dark:bg-gray-700 relative">
-          <img 
-            src={blogPost.image} 
-            alt={blogPost.title} 
-            className="w-full h-full object-cover"
-          />
-        </div>
-        
+        {blogPost.image_urls.length > 0 && (
+          <div className="h-96 bg-gray-300 dark:bg-gray-700 relative">
+            <img
+              src={blogPost.image_urls[0]}
+              alt={blogPost.title}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        )}
+
         <div className="p-8">
           <div className="flex flex-wrap items-center text-sm text-gray-500 dark:text-gray-400 mb-4">
             <span className="bg-uganda-red text-white text-xs font-bold px-2 py-1 rounded-full mr-3">
               {blogPost.category}
             </span>
-            <span className="mr-4">{blogPost.date}</span>
+            <span className="mr-4">{new Date(blogPost.created_at).toLocaleDateString()}</span>
             <span>By {blogPost.author}</span>
           </div>
           
