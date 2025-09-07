@@ -44,11 +44,30 @@ export default function BlogPage() {
         return
       }
 
+      console.log('Raw data:', data)
+
       const parsedData = (data || []).map((post: any) => ({
         ...post,
-        image_urls: typeof post.image_urls === 'string' ? JSON.parse(post.image_urls) : post.image_urls || [],
-        image_descriptions: typeof post.image_descriptions === 'string' ? JSON.parse(post.image_descriptions) : post.image_descriptions || [],
+        image_urls: (() => {
+          try {
+            return typeof post.image_urls === 'string' ? JSON.parse(post.image_urls) : post.image_urls || []
+          } catch (e) {
+            console.error('Error parsing image_urls for post', post.id, e)
+            return []
+          }
+        })(),
+        image_descriptions: (() => {
+          try {
+            return typeof post.image_descriptions === 'string' ? JSON.parse(post.image_descriptions) : post.image_descriptions || []
+          } catch (e) {
+            console.error('Error parsing image_descriptions for post', post.id, e)
+            return []
+          }
+        })(),
       }))
+
+      console.log('Parsed data:', parsedData)
+
       setBlogPosts(parsedData)
     } catch (err) {
       console.error('Error:', err)
