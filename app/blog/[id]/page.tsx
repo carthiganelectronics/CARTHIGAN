@@ -13,6 +13,7 @@ interface BlogPost {
   author: string
   category: string
   image_urls: string[]
+  image_descriptions: string[]
   published: boolean
   created_at: string
 }
@@ -117,13 +118,61 @@ export default function BlogPostPage({ params }: any) {
             <span className="mr-4">{new Date(blogPost.created_at).toLocaleDateString()}</span>
             <span>By {blogPost.author}</span>
           </div>
-          
+
           <h1 className="text-4xl font-bold mb-6 text-dark-slate dark:text-off-white">{blogPost.title}</h1>
-          
-          <div 
-            className="prose prose-lg max-w-none text-gray-700 dark:text-gray-300 dark:prose-invert"
+
+          {/* Header Image */}
+          {blogPost.image_urls.length > 0 && (
+            <div className="mb-6">
+              <img
+                src={blogPost.image_urls[0]}
+                alt={blogPost.image_descriptions[0] || 'Header image'}
+                className="w-full h-96 object-cover rounded-2xl"
+              />
+              {blogPost.image_descriptions[0] && (
+                <p className="text-sm text-gray-600 dark:text-gray-400 mt-2 italic">
+                  {blogPost.image_descriptions[0]}
+                </p>
+              )}
+            </div>
+          )}
+
+          <div
+            className="prose prose-lg max-w-none text-gray-700 dark:text-gray-300 dark:prose-invert mb-6"
             dangerouslySetInnerHTML={{ __html: blogPost.content }}
           />
+
+          {/* Middle Image */}
+          {blogPost.image_urls.length > 1 && (
+            <div className="mb-6">
+              <img
+                src={blogPost.image_urls[1]}
+                alt={blogPost.image_descriptions[1] || 'Middle image'}
+                className="w-full h-96 object-cover rounded-2xl"
+              />
+              {blogPost.image_descriptions[1] && (
+                <p className="text-sm text-gray-600 dark:text-gray-400 mt-2 italic">
+                  {blogPost.image_descriptions[1]}
+                </p>
+              )}
+            </div>
+          )}
+
+          {/* Final Image */}
+          {blogPost.image_urls.length > 2 && (
+            <div className="mb-6">
+              <img
+                src={blogPost.image_urls[2]}
+                alt={blogPost.image_descriptions[2] || 'Final image'}
+                className="w-full h-96 object-cover rounded-2xl"
+              />
+              {blogPost.image_descriptions[2] && (
+                <p className="text-sm text-gray-600 dark:text-gray-400 mt-2 italic">
+                  {blogPost.image_descriptions[2]}
+                </p>
+              )}
+            </div>
+          )}
         </div>
       </article>
 

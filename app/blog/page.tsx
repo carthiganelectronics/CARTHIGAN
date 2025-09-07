@@ -13,6 +13,7 @@ interface BlogPost {
   author: string
   category: string
   image_urls: string[]
+  image_descriptions: string[]
   published: boolean
   created_at: string
 }
