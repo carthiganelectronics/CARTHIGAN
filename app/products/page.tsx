@@ -26,6 +26,7 @@ export default function ProductsPage() {
   const [products, setProducts] = useState<Product[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null)
 
   // Load cart from localStorage on mount
   useEffect(() => {
@@ -200,7 +201,8 @@ export default function ProductsPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -10 }}
-              className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg"
+              className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg cursor-pointer"
+              onClick={() => setSelectedProduct(product)}
             >
               <div className="h-56 bg-gray-300 dark:bg-gray-700 relative">
                 <img
@@ -263,6 +265,65 @@ export default function ProductsPage() {
 
       {/* Cart Component */}
       {showCart && <Cart onClose={() => setShowCart(false)} />}
+
+      {/* Product Details Modal */}
+      {selectedProduct && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white dark:bg-gray-800 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-6">
+              <div className="flex justify-between items-start mb-4">
+                <h2 className="text-2xl font-bold text-dark-slate dark:text-off-white">{selectedProduct.name}</h2>
+                <button
+                  onClick={() => setSelectedProduct(null)}
+                  className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                  </svg>
+                </button>
+              </div>
+
+              <div className="mb-6">
+                <img
+                  src={selectedProduct.image_url || 'https://images.unsplash.com/photo-1505228395891-9a51e7814e02?auto=format&fit=crop&w=500'}
+                  alt={selectedProduct.name}
+                  className="w-full h-64 object-cover rounded-xl"
+                />
+              </div>
+
+              <div className="space-y-4">
+                <div>
+                  <span className="inline-block bg-uganda-yellow text-dark-slate px-3 py-1 rounded-full text-sm font-semibold mb-2">
+                    {selectedProduct.category}
+                  </span>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-semibold text-dark-slate dark:text-off-white mb-2">Description</h3>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    {selectedProduct.description || 'No description available for this product.'}
+                  </p>
+                </div>
+
+                <div className="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-700">
+                  <div className="text-3xl font-bold text-uganda-red">
+                    UGX {selectedProduct.price.toLocaleString()}
+                  </div>
+                  <button
+                    onClick={() => {
+                      addToCart(selectedProduct)
+                      setSelectedProduct(null)
+                    }}
+                    className="bg-uganda-red hover:bg-uganda-red/90 text-white font-bold py-3 px-6 rounded-full transition duration-300"
+                  >
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
