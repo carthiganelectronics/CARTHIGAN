@@ -73,14 +73,16 @@ export default function CheckoutPage() {
         total_amount: total,
         status: 'pending'
       }
-      const { error } = await supabase.from('orders').insert(orderData)
-      if (error) {
-        alert('Failed to place order: ' + error.message)
-      } else {
-        alert('Order placed successfully!')
-        localStorage.removeItem('cart')
-        window.location.href = '/'
-      }
+       console.log('Inserting orderData:', orderData)
+       const { error, data } = await supabase.from('orders').insert(orderData)
+       console.log('Insert result:', {error, data})
+       if (error) {
+         alert('Failed to place order: ' + error.message)
+       } else {
+         alert('Order placed successfully!')
+         localStorage.removeItem('cart')
+         window.location.href = '/'
+       }
     } catch (err) {
       alert('Error placing order')
     }
